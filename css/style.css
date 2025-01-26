@@ -1,0 +1,268 @@
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+nav p {
+  font-family: "Raleway";
+  font-weight: 500;
+  font-size: 48px;
+  color: #830247;
+  margin-bottom: 0px;
+}
+
+h1 {
+  font-family: "Raleway";
+  font-weight: 500;
+  font-size: 32px;
+  color: #830247;
+}
+
+h4 {
+  font-family: "IBM plex Sans Condensed";
+  font-weight: 300;
+  font-size: 20px;
+  letter-spacing: 0.5px;
+}
+
+.nav-btn a {
+  text-decoration: none;
+  color: black;
+}
+
+h5 {
+  font-family: "IBM plex Sans Condensed";
+  font-weight: 600;
+  font-size: 20px;
+  margin-bottom: 0px;
+}
+
+nav h6 {
+  color: #830247;
+}
+h6 {
+  font-family: "IBM plex Sans Condensed";
+  font-weight: 500;
+  font-size: 16px;
+  margin-top: 0px;
+}
+
+h7 {
+  font-family: "IBM plex Sans Condensed";
+  font-weight: 300;
+  font-style: italic;
+  font-size: 16px;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  margin: 0 150px 0 150px;
+}
+
+#top-line {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  align-items: center;
+}
+
+.line-one {
+  text-align: start;
+}
+
+.line-two {
+  text-align: center;
+}
+
+#bottom-line {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 54px;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+}
+
+.carousel {
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.slides {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slides img {
+  width: 100%;
+  flex-shrink: 0;
+}
+
+header button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 206, 235, 0.65);
+  color: #da4988;
+  border: none;
+  padding: 30px;
+  border-radius: 50%;
+  font-size: 48px;
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+
+.bubble {
+  position: absolute;
+  top: 30%;
+  transform: translateY(-30%);
+  left: 10%;
+  background-color: rgba(255, 206, 235, 0.65);
+  border: none;
+  padding: 60px;
+  border-radius: 50%;
+}
+
+.bubble p {
+  font-family: "IBM plex Sans Condensed";
+  font-weight: 400;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  max-width: 540px;
+}
+
+.bubble-text {
+  padding: 20px;
+}
+
+.read-more {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  text-align: center;
+}
+
+.read-more h6 {
+  color: #830247;
+}
+
+.thumbnail-grid {
+  background-color: rgba(255, 206, 236, 0.3);
+}
+
+#footer-text h6 {
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+footer {
+  background-color: #da4988;
+  height: 206px;
+  letter-spacing: 0.5px;
+  position: relative;
+  margin-top: 120px;
+}
+
+#dark-heart1 img {
+  width: 34px;
+  height: 30px;
+  transform: rotate(-30deg);
+  margin: 42px 0 0 0px;
+}
+
+#light-pink-heart1 img {
+  width: 47px;
+  height: 42px;
+  position: absolute;
+  margin: 25px 0 0 15px;
+  transform: rotate(-5deg);
+}
+
+#dark-heart2 img {
+  width: 88px;
+  height: 79px;
+  position: absolute;
+  margin: 95px 0 0 0px;
+}
+#light-pink-heart2 img {
+  width: 47px;
+  height: 42px;
+  position: absolute;
+  margin: 150px 0 0 0;
+  transform: rotate(-20deg);
+}
+
+#dark-heart3 img {
+  width: 88px;
+  height: 79px;
+  position: absolute;
+  margin: -30px 0 0 20px;
+}
+#light-pink-heart3 img {
+  width: 47px;
+  height: 42px;
+  position: absolute;
+  margin: -13px 0 0 0px;
+  transform: rotate(-20deg);
+}
+
+#dark-heart4 img {
+  width: 64px;
+  height: 58px;
+  position: absolute;
+  transform: rotate(-30deg);
+  margin: 103px 0 0 0px;
+}
+
+#light-pink-heart4 img {
+  width: 88px;
+  height: 79px;
+  position: absolute;
+  margin: 48px 0 0 5px;
+  transform: rotate(0deg);
+}
+
+#dark-heart5 img {
+  width: 51px;
+  height: 46px;
+  position: absolute;
+  margin: 48px 0 0 20px;
+  transform: rotate(-10deg);
+}
+#light-pink-heart5 img {
+  width: 35px;
+  height: 31px;
+  position: absolute;
+  margin: 65px 0 0 0px;
+  transform: rotate(-30deg);
+}
+
+#dark-heart6 img {
+  width: 34px;
+  height: 30px;
+  position: absolute;
+  margin: 20px 0 0 0px;
+  transform: rotate(5deg);
+}
+
+#footer-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.heart-grid {
+  display: flex;
+  justify-content: center;
+}

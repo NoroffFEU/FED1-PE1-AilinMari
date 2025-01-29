@@ -1,4 +1,6 @@
-document.addEventListener("DOMContentLoaded", async (event) => {
+//bytt ut document med navnet på buttonen som skal klikkes på//
+
+document.addEventListener("click", async (event) => {
   event.preventDefault();
 
   const url = "https://v2.api.noroff.dev/auth/login";

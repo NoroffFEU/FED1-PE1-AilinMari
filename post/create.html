@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Blog Post</title>
+    <link rel="stylesheet" href="create.css" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Create a New Blog Post</h1>
+      <form id="createPostForm">
+        <label for="title"><h4>POST TITLE</h4> </label>
+        <input type="text" id="title" name="title" />
+
+        <label for="content"><h4>POST CONTENT</h4></label>
+        <textarea id="content" name="content"></textarea>
+
+        <label for="imageUrl"><h4>IMAGE URL</h4></label>
+        <input type="url" id="imageUrl" name="imageUrl" />
+
+        <!-- <label for="imageAlt">Image Alt Text:</label>
+        <input type="text" id="imageAlt" name="imageAlt" /> -->
+
+        <button type="submit"><h2>Create post</h2></button>
+      </form>
+
+      <script src="/js/create.js"></script>
+    </main>
+  </body>
+</html>

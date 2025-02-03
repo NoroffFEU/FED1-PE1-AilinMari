@@ -1,4 +1,4 @@
-const sprinkledBliss = "https://api-endpoint-url/blog/posts";
+const sprinkledBliss = "https://v2.api.noroff.dev/blog/posts/ailin_user";
 
 async function getBlogpost() {
   try {
@@ -10,6 +10,8 @@ async function getBlogpost() {
   } catch (error) {
     console.error("Error fetching blogposts", error);
   }
+
+  console.log("Blogposts:", blogposts);
 }
 
 getBlogpost();
@@ -49,6 +51,7 @@ function renderBlogposts(post) {
 
     thumbnailGrid.appendChild(postContainer);
   });
+  console.log("Blogposts rendered");
 }
 
 let currentIndex = 0;

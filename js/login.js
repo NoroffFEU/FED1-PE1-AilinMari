@@ -25,23 +25,46 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       const result = await response.json();
+      const accessToken = result.data.accessToken;
+
+      console.log(accessToken);
+
       console.log("Login successful:", result);
-      // Handle successful login here (e.g., store token, redirect user)
+
+      //   Handle successful login here (e.g., store token, redirect user)
+      localStorage.setItem("accessToken", accessToken);
+
+      if (remember) {
+        localStorage.setItem("email", email);
+        localStorage.setItem("password", password);
+      } else {
+        localStorage.removeItem("email");
+        localStorage.removeItem("password");
+      }
     } catch (error) {
       console.error("Error:", error);
       // Handle login error here (e.g., show error message to user)
     }
   });
+
+  const storedEmail = localStorage.getItem("email");
+  const storedPassword = localStorage.getItem("password");
+  if (storedEmail && storedPassword) {
+    document.getElementById("email").value = storedEmail;
+    document.getElementById("password").value = storedPassword;
+    document.getElementById("rememberMe").checked = true;
+  }
+  console.log("Login successful:", result);
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-  const rememberMe = document.querySelector(".checkbox");
-  rememberMe.addEventListener("click", (event) => {
-    event.preventDefault();
+// document.addEventListener("DOMContentLoaded", () => {
+//   const rememberMe = document.querySelector(".checkbox");
+//   rememberMe.addEventListener("click", (event) => {
+//     event.preventDefault();
 
-    console.log("Remember me checkbox clicked");
-  });
-});
+//     console.log("Remember me checkbox clicked");
+//   });
+// });
 
 // //bytt ut document med navnet på buttonen som skal klikkes på//
 

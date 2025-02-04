@@ -44,7 +44,7 @@ function renderBlogposts(post) {
     img.src = blogpost.media.url;
     img.alt = blogpost.media.alt;
 
-    const postTitle = document.createElement("h3");
+    const postTitle = document.createElement("h4");
     postTitle.textContent = blogpost.title;
 
     const readMoreButton = document.createElement("button");
@@ -56,14 +56,54 @@ function renderBlogposts(post) {
       console.log("Read more button clicked for blogpost:", blogpost);
     });
 
+    const deleteButton = document.createElement("button");
+    deleteButton.textContent = "Delete";
+    deleteButton.className = "delete-btn";
+    deleteButton.setAttribute("data-id", blogpost.id);
+    deleteButton.addEventListener("click", async (event) => {
+      event.preventDefault();
+      const postId = event.target.getAttribute("data-id");
+      await deleteBlogpost(postId);
+    });
+
     link.appendChild(img);
     link.appendChild(postTitle);
     postContainer.appendChild(link);
     postContainer.appendChild(readMoreButton);
+    postContainer.appendChild(deleteButton);
 
     thumbnailGrid.appendChild(postContainer);
   });
   console.log("Blogposts rendered");
+}
+
+async function deleteBlogpost(postId) {
+  const url = `https://v2.api.noroff.dev/blog/posts/ailin_user/${postId}`;
+  const accessToken = localStorage.getItem("accessToken");
+  if (!accessToken) {
+    console.error("Please log in.");
+    return;
+  }
+
+  try {
+    const response = await fetch(url, {
+      method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error("Failed to delete blog post");
+    }
+
+    console.log("Blog post deleted:", postId);
+
+    // Fetch the updated list of blog posts
+    await getBlogpost();
+  } catch (error) {
+    console.error("Error deleting blog post", error);
+  }
 }
 
 //auther register

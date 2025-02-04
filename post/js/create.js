@@ -1,4 +1,5 @@
 const sprinkledBliss = "https://v2.api.noroff.dev/blog/posts/ailin_user";
+let blogposts = [];
 
 async function getBlogpost() {
   try {
@@ -15,27 +16,33 @@ async function getBlogpost() {
 }
 
 async function createBlogpost(title, content, imageUrl, imageAlt) {
-  const url = "https://v2.api.noroff.dev/blog/posts";
+  console.log("Creating blog post...");
+  const url = "https://v2.api.noroff.dev/blog/posts/ailin_user";
+  const accessToken = localStorage.getItem("accessToken");
+  if (accessToken) {
+    console.error("Please log in.");
+    return;
+  }
   const data = {
     title: title,
-    content: content,
-    image: {
+    body: content,
+    media: {
       url: imageUrl,
-      alt: imageAlt,
+      alt: imageAlt || "Default image description",
     },
     author: "ailin_user",
   };
-
   try {
     const response = await fetch(url, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        Authorization: "Bearer ${accessToken}",
       },
       body: JSON.stringify(data),
     });
 
-    if (!response.ok) {
+    if (response.ok) {
       throw new Error("Failed to create blog post");
     }
 
@@ -52,14 +59,19 @@ async function createBlogpost(title, content, imageUrl, imageAlt) {
 document.addEventListener("DOMContentLoaded", () => {
   const createPostForm = document.getElementById("createPostForm");
 
-  createPostForm.addEventListener("submit", async (event) => {
-    event.preventDefault();
+  if (createPostForm) {
+    createPostForm.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      console.log("Create post button clicked");
 
-    const title = document.getElementById("title").value;
-    const content = document.getElementById("content").value;
-    const imageUrl = document.getElementById("imageUrl").value;
-    const imageAlt = document.getElementById("imageAlt").value;
+      const title = document.getElementById("title").value;
+      const content = document.getElementById("content").value;
+      const imageUrl = document.getElementById("imageUrl").value;
+      const imageAlt = document.getElementById("imageAlt").value;
 
-    await createBlogpost(title, content, imageUrl, imageAlt);
-  });
+      await createBlogpost(title, content, imageUrl, imageAlt);
+    });
+  } else {
+    console.error("Element with ID 'createPostForm' not found");
+  }
 });

@@ -52,9 +52,8 @@ document.addEventListener("DOMContentLoaded", () => {
   if (storedEmail && storedPassword) {
     document.getElementById("email").value = storedEmail;
     document.getElementById("password").value = storedPassword;
-    document.getElementById("rememberMe").checked = true;
+    // document.getElementById("rememberMe").checked = true;
   }
-  console.log("Login successful:", result);
 });
 
 // document.addEventListener("DOMContentLoaded", () => {

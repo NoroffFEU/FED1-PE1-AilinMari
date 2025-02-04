@@ -16,6 +16,18 @@ async function getBlogpost() {
 
 getBlogpost();
 
+let currentIndex = 0;
+
+function changeSlide(direction) {
+  const slides = document.querySelector(".slides");
+  const totalSlides = slides.children.length;
+  currentIndex = (currentIndex + direction + totalSlides) % totalSlides;
+  slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+}
+document
+  .querySelector(".prev")
+  .addEventListener("click", () => changeSlide(-1));
+document.querySelector(".next").addEventListener("click", () => changeSlide(1));
 function renderBlogposts(post) {
   const thumbnailGrid = document.getElementById("blogposts");
   thumbnailGrid.className = "thumbnail-grid";
@@ -29,8 +41,8 @@ function renderBlogposts(post) {
     link.href = `post/index.html?id=${blogpost.id}`;
 
     const img = document.createElement("img");
-    img.src = blogpost.image.url;
-    img.alt = blogpost.image.alt;
+    img.src = blogpost.media.url;
+    img.alt = blogpost.media.alt;
 
     const postTitle = document.createElement("h3");
     postTitle.textContent = blogpost.title;
@@ -53,19 +65,6 @@ function renderBlogposts(post) {
   });
   console.log("Blogposts rendered");
 }
-
-let currentIndex = 0;
-
-function changeSlide(direction) {
-  const slides = document.querySelector(".slides");
-  const totalSlides = slides.children.length;
-  currentIndex = (currentIndex + direction + totalSlides) % totalSlides;
-  slides.style.transform = `translateX(-${currentIndex * 100}%)`;
-}
-document
-  .querySelector(".prev")
-  .addEventListener("click", () => changeSlide(-1));
-document.querySelector(".next").addEventListener("click", () => changeSlide(1));
 
 //auther register
 

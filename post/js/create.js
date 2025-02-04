@@ -19,7 +19,7 @@ async function createBlogpost(title, content, imageUrl, imageAlt) {
   console.log("Creating blog post...");
   const url = "https://v2.api.noroff.dev/blog/posts/ailin_user";
   const accessToken = localStorage.getItem("accessToken");
-  if (accessToken) {
+  if (!accessToken) {
     console.error("Please log in.");
     return;
   }
@@ -37,12 +37,12 @@ async function createBlogpost(title, content, imageUrl, imageAlt) {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: "Bearer ${accessToken}",
+        Authorization: `Bearer ${accessToken}`,
       },
       body: JSON.stringify(data),
     });
 
-    if (response.ok) {
+    if (!response.ok) {
       throw new Error("Failed to create blog post");
     }
 

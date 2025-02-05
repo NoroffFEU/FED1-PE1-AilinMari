@@ -7,11 +7,40 @@ async function getBlogpost() {
     blogposts = data;
 
     renderBlogposts(blogposts);
+    updateCarousel(blogposts);
   } catch (error) {
     console.error("Error fetching blogposts", error);
   }
 
   console.log("Blogposts:", blogposts);
+}
+
+//Husk å legge inn linking til blogposter i slides
+function updateCarousel(blogposts) {
+  const slidesContainer = document.querySelector(".slides");
+  slidesContainer.innerHTML = "";
+
+  const latestPosts = blogposts.slice(0, 3);
+  latestPosts.forEach((post) => {
+    const slide = document.createElement("div");
+    slide.className = "slide";
+
+    const img = document.createElement("img");
+    img.src = post.media.url;
+    img.alt = post.media.alt;
+
+    const titleBubble = document.createElement("h1");
+    titleBubble.textContent = post.title;
+
+    const author = document.createElement("p");
+    author.textContent = "by " + post.author.name;
+
+    slide.appendChild(img);
+    slide.appendChild(titleBubble);
+    titleBubble.appendChild(author);
+    slidesContainer.appendChild(slide);   
+
+  });
 }
 
 getBlogpost();
@@ -47,6 +76,7 @@ function renderBlogposts(post) {
     const postTitle = document.createElement("h4");
     postTitle.textContent = blogpost.title;
 
+    //funker ikke =>
     const readMoreButton = document.createElement("a");
     readMoreButton.textContent = "Read more";
     readMoreButton.className = "read-more";
@@ -68,6 +98,7 @@ function renderBlogposts(post) {
 
     link.appendChild(postTitle);
     link.appendChild(img);
+  
     postContainer.appendChild(link);
     postContainer.appendChild(readMoreButton);
     postContainer.appendChild(deleteButton);

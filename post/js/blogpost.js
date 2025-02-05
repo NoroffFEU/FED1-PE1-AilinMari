@@ -31,20 +31,21 @@ function renderBlogpostbyId(blogpost) {
 
   const author = document.createElement("p");
   author.textContent = "By: " + blogpost.author.name;
+  
+  postContainer.appendChild(img);
+  postContainer.appendChild(postTitle);
+  postTitle.appendChild(author);
 
-  const backgroundBox = document.createElement("div");
-  backgroundBox.className = "background-box";
+  const postContentContainer = document.getElementById("blogpost-content");
 
   const postContent = document.createElement("p");
   postContent.textContent = blogpost.body;
   postContent.className = "post-content";
 
-  postContainer.appendChild(img);
-  postContainer.appendChild(postTitle);
-  postTitle.appendChild(author);
-//   postTitle.appendChild(readMore);
-  postContainer.appendChild(postContent);
-    postContainer.appendChild(backgroundBox);
+
+
+  postContentContainer.appendChild(postContent);
+
 }
 
 getBlogpostByID();

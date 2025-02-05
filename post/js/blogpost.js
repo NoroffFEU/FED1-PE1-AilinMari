@@ -11,36 +11,42 @@ async function getBlogpostByID() {
     // blogpost = data;
 
     renderBlogpostbyId(data);
-
   } catch (error) {
     console.error("Error fetching blogpost", error);
   }
 }
 
+function renderBlogpostbyId(blogpost) {
+  const postContainer = document.getElementById("blogpost");
 
+  // const link = document.getElementById("blogposts");
+  // link.href = `post/index.html?id=${blogpost.id}`;
 
-  function renderBlogpostbyId(blogpost) {
-    const postContainer = document.getElementById("blogpost");
+  const img = document.createElement("img");
+  img.src = blogpost.media.url;
+  img.alt = blogpost.media.alt;
 
-    // const link = document.getElementById("blogposts");
-    // link.href = `post/index.html?id=${blogpost.id}`;
+  const postTitle = document.createElement("h1");
+  postTitle.textContent = blogpost.title;
 
-    const img = document.createElement("img");
-    img.src = blogpost.media.url;
-    img.alt = blogpost.media.alt;
+  const author = document.createElement("p");
+  author.textContent = "By: " + blogpost.author.name;
 
-    const postTitle = document.createElement("h1");
-    postTitle.textContent = blogpost.title;
+  const backgroundBox = document.createElement("div");
+  backgroundBox.className = "background-box";
 
-    const postContent = document.createElement("p");
-    postContent.textContent = blogpost.body;
-  
-    postContainer.appendChild(img);
-    postContainer.appendChild(postTitle);
-    postContainer.appendChild(postContent);
-  }
+  const postContent = document.createElement("p");
+  postContent.textContent = blogpost.body;
+  postContent.className = "post-content";
 
-  getBlogpostByID();
+  postContainer.appendChild(img);
+  postContainer.appendChild(postTitle);
+  postTitle.appendChild(author);
+//   postTitle.appendChild(readMore);
+  postContainer.appendChild(postContent);
+    postContainer.appendChild(backgroundBox);
+}
 
-   console.log("Blogpost:", blogpost);
+getBlogpostByID();
 
+console.log("Blogpost:", blogpost);

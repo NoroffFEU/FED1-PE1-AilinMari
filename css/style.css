@@ -176,8 +176,8 @@ header button {
 }
 
 section img {
-  width: 100%;
-  height: 200px;
+  max-width: 270px;
+  max-height: 240px;
 }
 
 section .read-more {
@@ -190,19 +190,28 @@ section .read-more {
 .post-container a {
   font-family: "Raleway";
   font-weight: 500;
-  font-size: 20px;
+  font-size: 16px;
   color: #830247;
   text-decoration: none;
   margin-bottom: 10px;
 }
 
-section .delete-btn {
+section h4 {
   font-family: "Raleway";
   font-weight: 500;
   font-size: 20px;
+  letter-spacing: 0.5px;
+  text-align: center;
+}
+
+section .delete-btn {
+  font-family: "Raleway";
+  font-weight: 500;
+  font-size: 16px;
   color: #fff;
   background-color: #d40004;
   border-radius: 7px;
+  margin-bottom: 20px;
 }
 
 section .delete-btn:hover {
@@ -329,3 +338,17 @@ footer {
   display: flex;
   justify-content: center;
 }
+
+/* https://ibb.co/pBh3b6Nd macroner
+https://ibb.co/nMbBTSK2 cake pops
+https://ibb.co/LX4Y7gHX cup cakes
+https://ibb.co/xqpX877m scones
+https://ibb.co/ccmpkY8R carrot cake
+https://ibb.co/S4kFbHbw pumpkin spice bread
+https://ibb.co/7cV7scF  Cinamon rolls
+https://ibb.co/Z1mBF4cz Brownies
+https://ibb.co/tw0zj0xn banana bread
+https://ibb.co/x8KD0gsQ red velvet cupcakes
+https://ibb.co/N2BmL8dj cookies
+https://ibb.co/JjDmSqcb lemon blueberry muffins
+*/

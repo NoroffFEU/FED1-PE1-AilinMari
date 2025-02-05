@@ -57,7 +57,7 @@ function renderBlogposts(post) {
     });
 
     const deleteButton = document.createElement("button");
-    deleteButton.textContent = "Delete";
+    deleteButton.textContent = "Delete post";
     deleteButton.className = "delete-btn";
     deleteButton.setAttribute("data-id", blogpost.id);
     deleteButton.addEventListener("click", async (event) => {
@@ -66,8 +66,8 @@ function renderBlogposts(post) {
       await deleteBlogpost(postId);
     });
 
-    link.appendChild(img);
     link.appendChild(postTitle);
+    link.appendChild(img);
     postContainer.appendChild(link);
     postContainer.appendChild(readMoreButton);
     postContainer.appendChild(deleteButton);

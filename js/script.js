@@ -47,7 +47,7 @@ function renderBlogposts(post) {
     const postTitle = document.createElement("h4");
     postTitle.textContent = blogpost.title;
 
-    const readMoreButton = document.createElement("button");
+    const readMoreButton = document.createElement("a");
     readMoreButton.textContent = "Read more";
     readMoreButton.className = "read-more";
     readMoreButton.setAttribute("data-id", blogpost.id);

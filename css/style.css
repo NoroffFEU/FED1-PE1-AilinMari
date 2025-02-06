@@ -39,13 +39,14 @@ h5 {
 }
 
 nav h6 {
-  color: #830247;
+
+  margin-top: 0px;
 }
 h6 {
   font-family: "IBM plex Sans Condensed";
   font-weight: 500;
   font-size: 16px;
-  margin-top: 0px;
+  color: #830247;  
 }
 
 h7 {
@@ -147,7 +148,7 @@ header button {
   left: 10%;
   background-color: rgba(255, 206, 235, 0.65);
   border: none;
-  padding: 60px 100px;
+  padding: 60px 100px 0px 100px;
   border-radius: 50%;
   text-align: center;
   transform: translateY(-50%);
@@ -167,19 +168,24 @@ p {
   max-width: 540px;
 }
 
-.bubble-text {
-  padding: 20px;
+.author-readmore {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 13vw;
+
 }
 
 .read-more {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
   align-items: center;
-  text-align: center;
+  text-align: center;  
+
 }
 
-.read-more h6 {
-  color: #830247;
+header .read-more {
+font-style: normal;
+
 }
 
 .thumbnail-grid {

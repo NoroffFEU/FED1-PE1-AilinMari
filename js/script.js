@@ -34,10 +34,19 @@ function updateCarousel(blogposts) {
 
     const author = document.createElement("p");
     author.textContent = "by " + post.author.name;
+    author.className = "author-readmore";
 
-    slide.appendChild(img);
+    const readMore = document.createElement("h6")
+    readMore.textContent = "Read more";
+    readMore.className = "read-more"
+
+
+
+    slide.appendChild(img);    
+
     slide.appendChild(titleBubble);
-    titleBubble.appendChild(author);
+    titleBubble.appendChild(author);    
+    author.appendChild(readMore);
     slidesContainer.appendChild(slide);   
 
   });

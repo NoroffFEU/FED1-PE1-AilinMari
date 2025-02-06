@@ -42,9 +42,23 @@ function renderBlogpostbyId(blogpost) {
   postContent.textContent = blogpost.body;
   postContent.className = "post-content";
 
+//   const createdDate = document.createElement("p");
+// createdDate.textContent = "published " + blogpost.created.split("T")[0];
+// createdDate.className = "created-date";
+
+// if{
+//     (blogpost.title.img.body = blogpost.updated)
+
+// }
+//trying tp make a "if the post has been update, show the updated date"
+const editDate = document.createElement("p");
+editDate.textContent = "edited " + blogpost.updated.split("T")[0];
+editDate.className = "created-date";
 
 
   postContentContainer.appendChild(postContent);
+//   postContentContainer.appendChild(createdDate);
+  postContentContainer.appendChild(editDate);
 
 }
 

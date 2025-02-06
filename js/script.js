@@ -36,14 +36,13 @@ function updateCarousel(blogposts) {
     author.textContent = "by " + post.author.name;
     author.className = "author-readmore";
 
-    const readMore = document.createElement("h6")
+    const readMore = document.createElement("a")
     readMore.textContent = "Read more";
     readMore.className = "read-more"
+    readMore.href = `post/index.html?id=${post.id}`;
 
 
-
-    slide.appendChild(img);    
-
+    slide.appendChild(img);   
     slide.appendChild(titleBubble);
     titleBubble.appendChild(author);    
     author.appendChild(readMore);
@@ -89,11 +88,7 @@ function renderBlogposts(post) {
     const readMoreButton = document.createElement("a");
     readMoreButton.textContent = "Read more";
     readMoreButton.className = "read-more";
-    readMoreButton.setAttribute("data-id", blogpost.id);
-    readMoreButton.addEventListener("click", (event) => {
-      event.preventDefault();
-      console.log("Read more button clicked for blogpost:", blogpost);
-    });
+    readMoreButton.href = `post/index.html?id=${blogpost.id}`;
 
     const deleteButton = document.createElement("button");
     deleteButton.textContent = "Delete post";

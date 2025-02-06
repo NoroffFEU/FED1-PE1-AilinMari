@@ -24,6 +24,7 @@ h4 {
   font-weight: 300;
   font-size: 20px;
   letter-spacing: 0.5px;
+  margin-top: 0px;
 }
 
 .nav-btn a {
@@ -121,6 +122,7 @@ header button {
   padding: 30px;
   border-radius: 50%;
   font-size: 48px;
+  cursor: pointer;
 }
 
 .prev {
@@ -147,8 +149,9 @@ header button {
   top: 30%;
   left: 10%;
   background-color: rgba(255, 206, 235, 0.65);
+  box-shadow:  0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   border: none;
-  padding: 60px 100px 0px 100px;
+  padding: 60px 100px 60px 100px;
   border-radius: 50%;
   text-align: center;
   transform: translateY(-50%);
@@ -159,6 +162,14 @@ header button {
   font-weight: 300;
   font-family: "IBM plex Sans Condensed";
   color: #000;
+}
+
+.slide a {
+  font-family: "IBM plex Sans Condensed";
+  font-weight: 500;
+  font-size: 16px;
+  color: #830247;
+  text-decoration: none;
 }
 
 p {
@@ -224,7 +235,7 @@ section .read-more {
   font-size: 16px;
   color: #830247;
   text-decoration: none;
-  margin-bottom: 10px;
+  margin: 20px 0 10px 0;
 }
 
 section h4 {
@@ -242,7 +253,7 @@ section .delete-btn {
   color: #fff;
   background-color: #d40004;
   border-radius: 7px;
-  margin-bottom: 20px;
+  margin: 20px 0 0 0;
 }
 
 section .delete-btn:hover {
@@ -370,9 +381,9 @@ footer {
   justify-content: center;
 }
 
-/* https://ibb.co/pBh3b6Nd macroner
-https://ibb.co/nMbBTSK2 cake pops
-https://ibb.co/LX4Y7gHX cup cakes
+/* https://ibb.co/pBh3b6Nd cake pops
+https://ibb.co/nMbBTSK2  macroner
+https://ibb.co/LX4Y7gHX cupcakes
 https://ibb.co/xqpX877m scones
 https://ibb.co/ccmpkY8R carrot cake
 https://ibb.co/S4kFbHbw pumpkin spice bread

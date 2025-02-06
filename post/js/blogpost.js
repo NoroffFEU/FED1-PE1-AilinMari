@@ -38,9 +38,18 @@ function renderBlogpostbyId(blogpost) {
 
   const postContentContainer = document.getElementById("blogpost-content");
 
-  const postContent = document.createElement("p");
-  postContent.textContent = blogpost.body;
-  postContent.className = "post-content";
+  // Split the content by new lines and create a <p> element for each paragraph
+  const paragraphs = blogpost.body.split('\n');
+  paragraphs.forEach(paragraph => {
+    const postContent = document.createElement("p");
+    postContent.textContent = paragraph;
+    postContent.className = "post-content";
+    postContentContainer.appendChild(postContent);
+  });
+
+  // const postContent = document.createElement("p");
+  // postContent.textContent = blogpost.body;
+  // postContent.className = "post-content";
 
   const createdDate = document.createElement("p");
 createdDate.textContent = "published " + blogpost.created.split("T")[0];
@@ -56,7 +65,7 @@ createdDate.className = "created-date";
 // editDate.className = "created-date";
 
 
-  postContentContainer.appendChild(postContent);
+  // postContentContainer.appendChild(postContent);
   postContentContainer.appendChild(createdDate);
 //   postContentContainer.appendChild(editDate);
 

@@ -38,6 +38,7 @@ h4 {
   font-weight: 300;
   font-size: 20px;
   letter-spacing: 0.5px;
+  margin-top: 0px;
 }
 
 .nav-btn a {
@@ -96,12 +97,6 @@ nav {
   gap: 54px;
 }
 
-#footer-text h6 {
-  color: #fff;
-  display: flex;
-  justify-content: center;
-  position: relative;
-}
 
 .create-post {
   text-align: center;
@@ -171,6 +166,13 @@ footer {
   letter-spacing: 0.5px;
   position: relative;
   margin-top: 120px;
+}
+
+#footer-text h6 {
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  position: relative;
 }
 
 #dark-heart1 img {

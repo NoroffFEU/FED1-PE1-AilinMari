@@ -117,12 +117,12 @@ h1 p {
 
 p.post-content {
   font-family: "IBM plex Sans Condensed";
-  font-weight: 300;
+  font-weight: 400;
   font-size: 20px;
   color: #000;
   max-width: 500px;
   margin: 100px 200px 100px 150px;
-  line-height: 1.5;
+
 }
 
 #blogpost-content {

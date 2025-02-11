@@ -1,18 +1,19 @@
-const sprinkledBliss = "https://v2.api.noroff.dev/blog/posts/ailin_user";
+const sprinkledBliss = "https://v2.api.noroff.dev/blog/posts";
 let blogposts = [];
+let login = localStorage.getItem("userId");
 
 async function getBlogpost() {
   try {
-    const response = await fetch(sprinkledBliss);
+    const response = await fetch(`${sprinkledBliss}/ailin_user`);
     const { data } = await response.json();
     blogposts = data;
 
-    renderBlogposts(blogposts);
+    createBlogpost(blogposts);
   } catch (error) {
     console.error("Error fetching blogposts", error);
   }
 
-  console.log("Blogposts:", blogposts);
+  // console.log("Blogposts:", blogposts);
 }
 
 async function createBlogpost(title, content, imageUrl, imageAlt) {
@@ -30,7 +31,7 @@ async function createBlogpost(title, content, imageUrl, imageAlt) {
       url: imageUrl,
       alt: imageAlt || "Default image description",
     },
-    author: "ailin_user",
+    // author: data.author.id,
   };
   try {
     const response = await fetch(url, {
@@ -57,6 +58,8 @@ async function createBlogpost(title, content, imageUrl, imageAlt) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+  // const result = localStorage.getItem("result");
+  // const JSONresult =  JSON.parse(result);
   const createPostForm = document.getElementById("createPostForm");
 
   if (createPostForm) {
@@ -74,4 +77,5 @@ document.addEventListener("DOMContentLoaded", () => {
   } else {
     console.error("Element with ID 'createPostForm' not found");
   }
+  console.log(resultJSON);
 });

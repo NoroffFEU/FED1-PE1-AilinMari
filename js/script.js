@@ -36,18 +36,16 @@ function updateCarousel(blogposts) {
     author.textContent = "by " + post.author.name;
     author.className = "author-readmore";
 
-    const readMore = document.createElement("a")
+    const readMore = document.createElement("a");
     readMore.textContent = "Read more";
-    readMore.className = "read-more"
+    readMore.className = "read-more";
     readMore.href = `post/index.html?id=${post.id}`;
 
-
-    slide.appendChild(img);   
+    slide.appendChild(img);
     slide.appendChild(titleBubble);
-    titleBubble.appendChild(author);    
+    titleBubble.appendChild(author);
     author.appendChild(readMore);
-    slidesContainer.appendChild(slide);   
-
+    slidesContainer.appendChild(slide);
   });
 }
 
@@ -90,26 +88,42 @@ function renderBlogposts(post) {
     readMoreButton.className = "read-more";
     readMoreButton.href = `post/index.html?id=${blogpost.id}`;
 
-    const deleteButton = document.createElement("button");
-    deleteButton.textContent = "Delete post";
-    deleteButton.className = "delete-btn";
-    deleteButton.setAttribute("data-id", blogpost.id);
-    deleteButton.addEventListener("click", async (event) => {
-      event.preventDefault();
-      const postId = event.target.getAttribute("data-id");
-      await deleteBlogpost(postId);
-    });
+    // const deleteButton = document.createElement("button");
+    // deleteButton.textContent = "Delete post";
+    // deleteButton.className = "delete-btn";
+    // deleteButton.setAttribute("data-id", blogpost.id);
+    // deleteButton.addEventListener("click", async (event) => {
+    //   event.preventDefault();
+    //   const postId = event.target.getAttribute("data-id");
+    //   await deleteBlogpost(postId);
+    // });
 
     link.appendChild(postTitle);
     link.appendChild(img);
-  
+
     postContainer.appendChild(link);
     postContainer.appendChild(readMoreButton);
-    postContainer.appendChild(deleteButton);
+    postContainer.appendChild(createDeleteButton(blogpost));
 
     thumbnailGrid.appendChild(postContainer);
   });
   console.log("Blogposts rendered");
+}
+
+function createDeleteButton(blogpost) {
+  const deleteButton = document.createElement("button");
+  deleteButton.textContent = "Delete post";
+  deleteButton.className = "delete-btn";
+  deleteButton.setAttribute("data-id", blogpost.id);
+  deleteButton.addEventListener("click", async (event) => {
+    event.preventDefault();
+    const postId = event.target.getAttribute("data-id");
+    await deleteBlogpost(postId);
+  });
+  // if (blogpost.author.id !== blogpost.author.id) {
+  //   deleteButton.style.display = "none";
+  // }
+  return deleteButton;
 }
 
 async function deleteBlogpost(postId) {
@@ -140,6 +154,20 @@ async function deleteBlogpost(postId) {
     console.error("Error deleting blog post", error);
   }
 }
+
+const navbarLogin = document.querySelector(".log-in");
+const loginButton = document.createElement("a");
+loginButton.textContent = "Log in to your account";
+loginButton.href = "/account/login.html";
+
+
+const navbarCreate = document.querySelector(".create-account");
+const createAccount = document.createElement("a");
+createAccount.textContent = "Or create account";
+createAccount.href = "/account/register.html";
+
+navbarLogin.appendChild(loginButton);
+navbarCreate.appendChild(createAccount);
 
 //auther register
 

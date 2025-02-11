@@ -4,10 +4,13 @@ document.addEventListener("DOMContentLoaded", () => {
   loginButton.addEventListener("click", async (event) => {
     event.preventDefault();
 
+    let emailField = document.getElementById("email").value; // get email from field on webpage
+    let passwordField = document.getElementById("password").value; // get password from field on webpage
+    console.log(emailField, passwordField);
     const url = "https://v2.api.noroff.dev/auth/login";
     const data = {
-      email: "ailinmari@stud.noroff.no",
-      password: "12345678",
+      email: emailField,
+      password: passwordField,
     };
 
     try {
@@ -24,25 +27,28 @@ document.addEventListener("DOMContentLoaded", () => {
         throw new Error("Login failed");
       }
 
+      console.log("RESPONSE:", response);
+
       const result = await response.json();
       const accessToken = result.data.accessToken;
+      console.log(result);
 
       console.log(accessToken);
+      const loginString = JSON.stringify(result);
+      // console.log("Login successful:", result);
+      localStorage.setItem("result", loginString);
 
-      console.log("Login successful:", result);
-
-      //   Handle successful login here (e.g., store token, redirect user)
       localStorage.setItem("accessToken", accessToken);
-
-      if (remember) {
-        localStorage.setItem("email", email);
-        localStorage.setItem("password", password);
+      let rememberMe = document.getElementById("remember").checked;
+      if (rememberMe) {
+        localStorage.setItem("email", emailField);
+        localStorage.setItem("password", passwordField);
       } else {
         localStorage.removeItem("email");
         localStorage.removeItem("password");
       }
     } catch (error) {
-      console.error("Error:", error);
+      console.log("Error:", error);
       // Handle login error here (e.g., show error message to user)
     }
   });
@@ -52,7 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (storedEmail && storedPassword) {
     document.getElementById("email").value = storedEmail;
     document.getElementById("password").value = storedPassword;
-    // document.getElementById("rememberMe").checked = true;
+    document.getElementById("rememberMe").checked = true;
   }
 });
 

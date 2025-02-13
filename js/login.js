@@ -1,5 +1,45 @@
 document.addEventListener("DOMContentLoaded", () => {
   const loginButton = document.querySelector(".login");
+  // let login = localStorage.getItem("userId");
+
+  
+document.addEventListener("DOMContentLoaded", async () => {
+  checkLoginStatus();
+  const userName = await getAuthor();
+  updateNavbar(userName);
+});
+
+
+// function logOut() {
+//   localStorage.removeItem("accessToken");
+//   localStorage.removeItem("userId");
+//   window.location.reload();
+// }
+
+// function checkLoginStatus() {
+//   const accessToken = localStorage.getItem("accessToken");
+//   const userId = localStorage.getItem("userId");
+//   const loginSection = document.querySelector(".log-in");
+//   const loginButton = document.createElement("a");
+//   const createAccount = document.querySelector(".create-account");
+//   const createAccountButton = document.createElement("a");
+
+//   if (accessToken && userId) {
+
+//     loginSection.textContent = `Logged in as ${userId}`;
+//     // loginSection.innerHTML = `<h5>Logged in as ${userId}</h5><h6><a href="#" id="logout">Log out</a></h6>`;
+//     document.getElementsByClassName("create-account").addEventListener("click", logOut);
+//   } else {
+//     loginButton.innerHTML = `Log in to your account`;
+//     loginButton.href = "/account/login.html";
+//     createAccountButton.textContent = "Or create account";
+//     createAccountButton.href = "/account/register.html";
+//   }
+//   loginSection.appendChild(loginButton);
+//   createAccount.appendChild(createAccountButton);
+// }
+
+
 
   loginButton.addEventListener("click", async (event) => {
     event.preventDefault();
@@ -31,6 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const result = await response.json();
       const accessToken = result.data.accessToken;
+      const userId = result.data.userId; // Assuming userId is part of the response
       console.log(result);
 
       console.log(accessToken);
@@ -39,6 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
       localStorage.setItem("result", loginString);
 
       localStorage.setItem("accessToken", accessToken);
+      localStorage.setItem("userId", userId);
       let rememberMe = document.getElementById("remember").checked;
       if (rememberMe) {
         localStorage.setItem("email", emailField);
@@ -47,6 +89,10 @@ document.addEventListener("DOMContentLoaded", () => {
         localStorage.removeItem("email");
         localStorage.removeItem("password");
       }
+
+      const author = await getAuthor();
+      updateNavbar(author);
+      checkLoginStatus(); // Update the navbar after login
     } catch (error) {
       console.log("Error:", error);
       // Handle login error here (e.g., show error message to user)
@@ -61,6 +107,54 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("rememberMe").checked = true;
   }
 });
+
+
+// function updateNavbar(author) {
+//   const navbarLogin = document.querySelector(".log-in");
+//   const loginButtonNavbar = document.createElement("a");
+//   const navbarCreate = document.querySelector(".create-account");
+//   const createAccount = document.createElement("a");
+
+//   if (author) {
+//     loginButtonNavbar.textContent = `Logged in as ${author.name}`;
+//     createAccount.textContent = "Log out";
+//     createAccount.href = "#";
+//     createAccount.addEventListener("click", logOut);
+//   } else {
+//     loginButtonNavbar.textContent = "Log in to your account";
+//     loginButtonNavbar.href = "/login.html";
+//     createAccount.textContent = "Or create account";
+//     createAccount.href = "/account/register.html";
+//   }
+
+//   navbarLogin.innerHTML = "";
+//   navbarCreate.innerHTML = "";
+//   navbarLogin.appendChild(loginButtonNavbar);
+//   navbarCreate.appendChild(createAccount);
+// }
+
+// async function getAuthor() {
+//   const accessToken = localStorage.getItem("accessToken");
+//   if (!accessToken) return null;
+
+//   try {
+//     const response = await fetch("https://v2.api.noroff.dev/blog/posts/", {
+//       headers: {
+//         Authorization: `Bearer ${accessToken}`,
+//       },
+//     });
+//     if (!response.ok) throw new Error("Failed to fetch author");
+//     return await response.json();
+//   } catch (error) {
+//     console.error("Error fetching author", error);
+//     return null;
+//   }
+// }
+
+// function logOut() {
+//   localStorage.removeItem("accessToken");
+//   window.location.reload();
+// }
 
 // document.addEventListener("DOMContentLoaded", () => {
 //   const rememberMe = document.querySelector(".checkbox");

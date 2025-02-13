@@ -1,5 +1,5 @@
 const sprinkledBliss = "https://v2.api.noroff.dev/blog/posts/ailin_user";
-
+// const accessToken = localStorage.getItem("accessToken");
 async function getBlogpost() {
   try {
     const response = await fetch(sprinkledBliss);
@@ -82,48 +82,46 @@ function renderBlogposts(post) {
     const postTitle = document.createElement("h4");
     postTitle.textContent = blogpost.title;
 
-    //funker ikke =>
     const readMoreButton = document.createElement("a");
     readMoreButton.textContent = "Read more";
     readMoreButton.className = "read-more";
     readMoreButton.href = `post/index.html?id=${blogpost.id}`;
 
-    // const deleteButton = document.createElement("button");
-    // deleteButton.textContent = "Delete post";
-    // deleteButton.className = "delete-btn";
-    // deleteButton.setAttribute("data-id", blogpost.id);
-    // deleteButton.addEventListener("click", async (event) => {
-    //   event.preventDefault();
-    //   const postId = event.target.getAttribute("data-id");
-    //   await deleteBlogpost(postId);
-    // });
+    const editPostButton = document.createElement("button");
+    editPostButton.textContent = "Edit post";
+    editPostButton.className = "edit-btn";
+    editPostButton.addEventListener("click", () => {
+      window.location.href = `edit/index.html?id=${blogpost.id}`;
+    });
+
+    const deleteButton = document.createElement("button");
+    deleteButton.textContent = "Delete post";
+    deleteButton.className = "delete-btn";
+    deleteButton.setAttribute("data-id", blogpost.id);
+    deleteButton.addEventListener("click", async (event) => {
+      event.preventDefault();
+      const postId = event.target.getAttribute("data-id");
+      await deleteBlogpost(postId);
+    });
+
+    const accessToken = localStorage.getItem("accessToken");
+    const name = localStorage.getItem("name");
+    if (!accessToken || blogpost.author.name !== name) {
+      editPostButton.style.display = "none";
+      deleteButton.style.display = "none";
+    }
 
     link.appendChild(postTitle);
     link.appendChild(img);
 
     postContainer.appendChild(link);
     postContainer.appendChild(readMoreButton);
-    postContainer.appendChild(createDeleteButton(blogpost));
+    postContainer.appendChild(editPostButton);
+    postContainer.appendChild(deleteButton);
 
     thumbnailGrid.appendChild(postContainer);
   });
   console.log("Blogposts rendered");
-}
-
-function createDeleteButton(blogpost) {
-  const deleteButton = document.createElement("button");
-  deleteButton.textContent = "Delete post";
-  deleteButton.className = "delete-btn";
-  deleteButton.setAttribute("data-id", blogpost.id);
-  deleteButton.addEventListener("click", async (event) => {
-    event.preventDefault();
-    const postId = event.target.getAttribute("data-id");
-    await deleteBlogpost(postId);
-  });
-  // if (blogpost.author.id !== blogpost.author.id) {
-  //   deleteButton.style.display = "none";
-  // }
-  return deleteButton;
 }
 
 async function deleteBlogpost(postId) {
@@ -155,19 +153,19 @@ async function deleteBlogpost(postId) {
   }
 }
 
-const navbarLogin = document.querySelector(".log-in");
-const loginButton = document.createElement("a");
-loginButton.textContent = "Log in to your account";
-loginButton.href = "/account/login.html";
+// const navbarLogin = document.querySelector(".log-in");
+// const loginButton = document.createElement("a");
+// loginButton.textContent = "Log in to your account";
+// loginButton.href = "/account/login.html";
 
 
-const navbarCreate = document.querySelector(".create-account");
-const createAccount = document.createElement("a");
-createAccount.textContent = "Or create account";
-createAccount.href = "/account/register.html";
+// const navbarCreate = document.querySelector(".create-account");
+// const createAccount = document.createElement("a");
+// createAccount.textContent = "Or create account";
+// createAccount.href = "/account/register.html";
 
-navbarLogin.appendChild(loginButton);
-navbarCreate.appendChild(createAccount);
+// navbarLogin.appendChild(loginButton);
+// navbarCreate.appendChild(createAccount);
 
 //auther register
 

@@ -48,7 +48,7 @@ async function updateBlogpost(title, content, imageUrl, imageAlt) {
     console.log("Blog post updated:", result);
 
     // Redirect to the blog post page
-    window.location.href = `post/edit.html?id=${blogpostId}`;
+    window.location.href = `post/index.html?id=${blogpostId}`;
   } catch (error) {
     console.error("Error updating blog post", error);
   }

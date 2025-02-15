@@ -91,7 +91,7 @@ function renderBlogposts(post) {
     editPostButton.textContent = "Edit post";
     editPostButton.className = "edit-btn";
     editPostButton.addEventListener("click", () => {
-      window.location.href = `edit/index.html?id=${blogpost.id}`;
+      window.location.href = `/post/edit.html?id=${blogpost.id}`;
     });
 
     const deleteButton = document.createElement("button");
@@ -157,7 +157,6 @@ async function deleteBlogpost(postId) {
 // const loginButton = document.createElement("a");
 // loginButton.textContent = "Log in to your account";
 // loginButton.href = "/account/login.html";
-
 
 // const navbarCreate = document.querySelector(".create-account");
 // const createAccount = document.createElement("a");

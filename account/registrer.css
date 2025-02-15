@@ -1,0 +1,108 @@
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 120px 150px 120px 150px;
+    background-color: rgba(255, 206, 236, 0.3);
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+  
+  
+  h1 {
+    font-family: "Raleway";
+    font-weight: 500;
+    font-size: 32px;
+    color: #830247;
+    margin-top: 0px;
+  }
+  
+  h2 {
+    font-family: "Raleway";
+    font-weight: 500;
+    font-size: 32px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+  
+  h4 {
+    font-family: "IBM plex Sans Condensed";
+    font-weight: 300;
+    font-size: 20px;
+    letter-spacing: 0.5px;
+  }
+  
+  .nav-btn a {
+    text-decoration: none;
+    color: black;
+  }
+  
+  h5 {
+    font-family: "IBM plex Sans Condensed";
+    font-weight: 600;
+    font-size: 20px;
+    margin-bottom: 0px;
+  }
+  
+  h6 {
+    font-family: "IBM plex Sans Condensed";
+    font-weight: 500;
+    font-size: 16px;
+    margin-top: 0px;
+  }
+  
+  h7 {
+    font-family: "IBM plex Sans Condensed";
+    font-weight: 300;
+    font-style: italic;
+    font-size: 16px;
+  }
+  
+  
+  
+  input #body {
+    height: 250px;
+  }
+  
+  .log-in input {
+    width: 30vw;
+    max-width: 360px;
+    min-height: 30px;
+  }
+  
+  input {
+    border-radius: 7px;
+    border-color: #da4988;
+  }
+  
+  form {
+    width: 100%;
+    max-width: 980px;
+    text-align: center;
+  }
+  
+  .checkbox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+  }
+  
+
+  
+  button {
+    width: 30vw;
+    max-width: 370px;
+    height: 50px;
+    cursor: pointer;
+  }
+  
+  .main-btn button {
+    color: #fff;
+    background-color: #830247;
+    border-radius: 7px;
+    margin-top: 40px;
+  }
+  
+  

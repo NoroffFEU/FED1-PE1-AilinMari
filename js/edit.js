@@ -1,22 +1,31 @@
 const sprinkledBliss = "https://v2.api.noroff.dev/blog/posts/ailin_user";
-let blogpostId = new URLSearchParams(window.location.search).get("id");
+const urlParams = new URLSearchParams(window.location.search);
+const postId = urlParams.get("id");
 
 async function getBlogpost() {
   try {
-    const response = await fetch(`${sprinkledBliss}/${blogpostId}`);
+    const response = await fetch(`${sprinkledBliss}/${postId}`);
+    if (!response.ok) {
+      throw new Error("Failed to fetch blog post");
+    }
     const post = await response.json();
+    console.log("Blogpost:", post);
 
-    document.getElementById("title").value = post.title;
-    document.getElementById("content").value = post.body;
-    document.getElementById("imageUrl").value = post.media.url;
-    document.getElementById("imageAlt").value = post.media.alt;
+    populateFormFields(post.data);
   } catch (error) {
-    console.error("Error fetching blogpost", error);
+    console.error("Error fetching blogpost info", error);
   }
 }
 
+function populateFormFields(post) {
+  document.getElementById("title").value = post.title;
+  document.getElementById("content").value = post.body;
+  document.getElementById("imageUrl").value = post.media.url;
+  document.getElementById("imageAlt").value = post.media.alt;
+}
+
 async function updateBlogpost(title, content, imageUrl, imageAlt) {
-  const url = `${sprinkledBliss}/${blogpostId}`;
+  const url = `${sprinkledBliss}/${postId}`;
   const accessToken = localStorage.getItem("accessToken");
   if (!accessToken) {
     console.error("Please log in.");
@@ -48,7 +57,7 @@ async function updateBlogpost(title, content, imageUrl, imageAlt) {
     console.log("Blog post updated:", result);
 
     // Redirect to the blog post page
-    window.location.href = `post/index.html?id=${blogpostId}`;
+    window.location.href = `/post/index.html?id=${postId}`;
   } catch (error) {
     console.error("Error updating blog post", error);
   }

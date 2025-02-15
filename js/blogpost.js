@@ -2,13 +2,11 @@ const sprinkledBliss = "https://v2.api.noroff.dev/blog/posts/ailin_user";
 
 const urlParams = new URLSearchParams(window.location.search);
 const postId = urlParams.get("id");
-// let blogpost = JSON.parse(localStorage.getItem("#blogposts")) || [];
 
 async function getBlogpostByID() {
   try {
     const response = await fetch(`${sprinkledBliss}/${postId}`);
     const { data } = await response.json();
-    // blogpost = data;
 
     renderBlogpostbyId(data);
   } catch (error) {
@@ -18,9 +16,6 @@ async function getBlogpostByID() {
 
 function renderBlogpostbyId(blogpost) {
   const postContainer = document.getElementById("blogpost");
-
-  // const link = document.getElementById("blogposts");
-  // link.href = `post/index.html?id=${blogpost.id}`;
 
   const img = document.createElement("img");
   img.src = blogpost.media.url;
@@ -38,7 +33,6 @@ function renderBlogpostbyId(blogpost) {
 
   const postContentContainer = document.getElementById("blogpost-content");
 
-  // Split the content by new lines and create a <p> element for each paragraph
   const paragraphs = blogpost.body.split('\n');
   paragraphs.forEach(paragraph => {
     const postContent = document.createElement("p");
@@ -47,30 +41,28 @@ function renderBlogpostbyId(blogpost) {
     postContentContainer.appendChild(postContent);
   });
 
-  // const postContent = document.createElement("p");
-  // postContent.textContent = blogpost.body;
-  // postContent.className = "post-content";
-
   const createdDate = document.createElement("p");
-createdDate.textContent = "published " + blogpost.created.split("T")[0];
-createdDate.className = "created-date";
+  createdDate.textContent = "published " + blogpost.created.split("T")[0];
+  createdDate.className = "created-date";
 
-// if{
-//     (blogpost.title.img.body = blogpost.updated)
-
-// }
-//trying tp make a "if the post has been update, show the updated date"
-// const editDate = document.createElement("p");
-// editDate.textContent = "edited " + blogpost.updated.split("T")[0];
-// editDate.className = "created-date";
-
-
-  // postContentContainer.appendChild(postContent);
   postContentContainer.appendChild(createdDate);
-//   postContentContainer.appendChild(editDate);
-
 }
 
-getBlogpostByID();
+function copyToClipboard() {
+  const linkIcon = document.querySelector(".link-icon");
+  linkIcon.addEventListener("click", () => {
+    const url = window.location.href;
+    navigator.clipboard.writeText(url).then(() => {
+      alert("Link copied to clipboard!");
+    }).catch(err => {
+      console.error("Failed to copy link: ", err);
+    });
+  });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  getBlogpostByID();
+  copyToClipboard();
+});
 
 console.log("Blogpost:", blogpost);

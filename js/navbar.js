@@ -1,3 +1,8 @@
+document.addEventListener("DOMContentLoaded", async () => {
+    checkLoginStatus();
+    const userName = await getAuthor();
+    updateNavbar(userName);
+
 function logOut() {
     localStorage.removeItem("accessToken");
     localStorage.removeItem("userId");
@@ -31,14 +36,11 @@ function logOut() {
     }
     loginSection.appendChild(loginButton);
     createAccount.appendChild(createAccountButton);
-    createAccountButton.appendChild(logOut);
+
   
   }
   
   
-  document.addEventListener("DOMContentLoaded", async () => {
-    checkLoginStatus();
-    const userName = await getAuthor();
-    updateNavbar(userName);
+
   });
   

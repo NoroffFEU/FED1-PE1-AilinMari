@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="/js/login.js"></script>
+    <!-- <script src="/js/login.js"></script> -->
     <script src="/js/navbar.js"></script>
     <title>register</title>
-    <link rel="stylesheet" href="login.css" />
+    <link rel="stylesheet" href="registrer.css" />
     <link rel="stylesheet" href="/css/navbarfooter.css" />
     <style>
       @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
@@ -42,7 +42,28 @@
         </div>
       </div>
     </nav>
+    <main>
+      <h1>Create a new account</h1>
+      <form id="loginForm">
+        <div class="log-in">
+          <label for="name"><h4>NAME</h4></label>
+          <input type="text" name="name" id="name" />
+          <label for="email"><h4>EMAIL ADDRESS</h4></label>
+          <input type="email" name="email" id="email" />
+          <label for="password"><h4>PASSWORD</h4></label>
+          <input type="password" name="password" id="password" />
+        </div>
+<!-- <div class="loginFailed"></div>
+        <div class="checkbox">
+          <input type="checkbox" name="remember" id="remember" />
+          <label for="remember"><h4>Remember me</h4></label>
+        </div> -->
 
+        <div class="main-btn">
+          <button type="submit" class="login"><h2>Create account</h2></button>
+        </div>
+      </form>
+    </main>
     <footer>
         <div id="footer-content">
           <div class="heart-grid">

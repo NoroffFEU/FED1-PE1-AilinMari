@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const result = await response.json();
       const accessToken = result.data.accessToken;
-      const userId = result.data.userId; // Assuming userId is part of the response
+      const userId = result.data.name; // Assuming userId is part of the response
       console.log(result);
 
       console.log(accessToken);
@@ -39,15 +39,15 @@ document.addEventListener("DOMContentLoaded", () => {
       localStorage.setItem("result", loginString);
 
       localStorage.setItem("accessToken", accessToken);
-      localStorage.setItem("userId", userId);
-      let rememberMe = document.getElementById("remember").checked;
-      if (rememberMe) {
-        localStorage.setItem("email", emailField);
-        localStorage.setItem("password", passwordField);
-      } else {
-        localStorage.removeItem("email");
-        localStorage.removeItem("password");
-      }
+      localStorage.setItem("name", userId);
+      // let rememberMe = document.getElementById("remember").checked;
+      // if (rememberMe) {
+      //   localStorage.setItem("email", emailField);
+      //   localStorage.setItem("password", passwordField);
+      // } else {
+      //   localStorage.removeItem("email");
+      //   localStorage.removeItem("password");
+      // }
 
       // Refresh the site after successful login
       window.location.reload();

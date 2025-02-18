@@ -194,3 +194,53 @@ footer {
   font-weight: 600;
   position: relative;
 }
+
+@media (max-width: 1000px){
+ nav {
+   margin: 0 50px 0 50px;
+ }
+
+#footer-content img {
+display: none;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#footer-text h6 {
+text-align: center;
+}
+
+.heart-grid a{
+  font-size: 16px;
+
+}
+
+#footer-content {
+  display: flex;
+  flex-direction: row;
+}
+
+footer {
+  padding: 20px 20px 0 20px;
+  margin-top: 60px;
+}
+
+.line-two {
+  display: none;
+}
+
+.line-one a {
+  font-size: 32px;
+}
+
+.line-one h4 {
+font-size: 12px;
+}
+
+#top-line {
+ display: grid;
+  grid-template-columns: 1fr;
+}}

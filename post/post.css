@@ -132,3 +132,44 @@ button {
   height: 50px;
   cursor: pointer;
 }
+
+@media (max-width: 1000px) {
+  main {
+    margin: 50px 20px 50px 20px;
+  }
+
+#blogpost-content {
+  padding: 50px 20px 50px 20px;
+  margin: 0px;
+}
+
+p.post-content {
+  font-size: 16px;
+}
+
+p.created-date {
+  font-size: 14px;
+  margin-top: 50px;
+}
+
+p.updated-date {
+  font-size: 14px;
+}
+.link-icon {
+  font-size: 24px;
+  margin: 0 0 50px 0;
+}
+
+#blogpost h1 {
+  font-size: 24px;
+  padding: 30px 50px;
+}
+
+#blogpost h1 p {
+  font-size: 14px;
+}
+
+header img {
+  height: 300px;
+}
+}

@@ -49,4 +49,21 @@ form button:active {
   background-color: #da4988;
 }
 
+@media (max-width: 1000px) {
+  main {
+    margin: 50px 20px 50px 20px;
+  }
+  form input[type="text"],
+  form input[type="url"],
+  form textarea {
+    width: 60vw;
+    max-width: 350px;
+  }
+  form button {
+    width: 60vw;
+    height: 40px;
+    max-width: 360px;
+  }
+}
+
 

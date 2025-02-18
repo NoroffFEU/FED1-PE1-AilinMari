@@ -54,7 +54,6 @@ header button {
   right: 10px;
 }
 
-
 .slide h1 {
   position: absolute;
   top: 30%;
@@ -111,7 +110,7 @@ header .read-more {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   justify-items: center;
-  gap: 100px;
+  gap: 6rem;
   max-width: 1140px;
 }
 
@@ -145,8 +144,6 @@ section .read-more {
   text-decoration: none;
   margin: 20px 0 20px 0;
 }
-
-
 
 section .delete-btn {
   font-family: "Raleway";
@@ -192,6 +189,47 @@ section button {
   max-width: 200px;
   height: 30px;
   cursor: pointer;
+}
+
+@media (max-width: 1000px) {
+  main {
+    margin: 50px 20px 50px 20px;
+  }
+
+  .thumbnail-grid {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+
+  section button {
+    width: 30vw;
+    max-width: 200px;
+    min-width: 150px;
+    height: 30px;
+  }
+
+  .slide h1 {
+    padding: 30px 50px 30px 50px;
+
+  }
+
+  header button {
+    padding: 15px;
+    font-size: 24px;
+  }
+
+  p {
+    font-size: 12px;
+  }
+
+.slide a{
+    font-size: 14px;
+  }
+
+  .slides img {
+    height: 300px;
+  }
+
 }
 
 /* https://ibb.co/pBh3b6Nd cake pops

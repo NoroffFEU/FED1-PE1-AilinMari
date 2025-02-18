@@ -45,8 +45,43 @@ function renderBlogpostbyId(blogpost) {
   createdDate.textContent = "published " + blogpost.created.split("T")[0];
   createdDate.className = "created-date";
 
+  const editDate = document.createElement("p");
+  editDate.textContent = "updated " + blogpost.updated.split("T")[0];
+  editDate.className = "updated-date";
+
+  const postButtonContainer = document.getElementById("blogpost-buttons");
+  const editPostButton = document.createElement("button");
+  editPostButton.textContent = "Edit post";
+  editPostButton.className = "edit-btn";
+  editPostButton.addEventListener("click", () => {
+    window.location.href = `/post/edit.html?id=${blogpost.id}`;
+  });
+
+
+  const deleteButton = document.createElement("button");
+  deleteButton.textContent = "Delete post";
+  deleteButton.className = "delete-btn";
+  deleteButton.setAttribute("data-id", blogpost.id);
+  deleteButton.addEventListener("click", async (event) => {
+    event.preventDefault();
+    const postId = event.target.getAttribute("data-id");
+    await deleteBlogpost(postId);
+  });
+
+  const accessToken = localStorage.getItem("accessToken");
+  const name = localStorage.getItem("name");
+  if (!accessToken || blogpost.author.name !== name) {
+    editPostButton.style.display = "none";
+    deleteButton.style.display = "none";
+  }
+
   postContentContainer.appendChild(createdDate);
+  postContentContainer.appendChild(editDate);
+  postButtonContainer.appendChild(editPostButton);
+  postButtonContainer.appendChild(deleteButton);
 }
+
+
 
 function copyToClipboard() {
   const linkIcon = document.querySelector(".link-icon");

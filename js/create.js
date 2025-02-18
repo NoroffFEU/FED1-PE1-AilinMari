@@ -2,26 +2,27 @@ const sprinkledBliss = "https://v2.api.noroff.dev/blog/posts";
 let blogposts = [];
 let login = localStorage.getItem("userId");
 
-async function getBlogpost() {
-  try {
-    const response = await fetch(`${sprinkledBliss}/ailin_user`);
-    const { data } = await response.json();
-    blogposts = data;
+// async function getBlogpost() {
+//   try {
+//     const response = await fetch(`${sprinkledBliss}/ailin_user`);
+//     const { data } = await response.json();
+//     blogposts = data;
 
-    createBlogpost(blogposts);
-  } catch (error) {
-    console.error("Error fetching blogposts", error);
-  }
+//     createBlogpost(blogposts);
+//   } catch (error) {
+//     console.error("Error fetching blogposts", error);
+//   }
 
-  // console.log("Blogposts:", blogposts);
-}
+//   // console.log("Blogposts:", blogposts);
+// }
 
 async function createBlogpost(title, content, imageUrl, imageAlt) {
   console.log("Creating blog post...");
   const url = "https://v2.api.noroff.dev/blog/posts/ailin_user";
   const accessToken = localStorage.getItem("accessToken");
   if (!accessToken) {
-    console.error("Please log in.");
+    
+    // console.error("Please log in.");
     return;
   }
   const data = {
@@ -48,12 +49,12 @@ async function createBlogpost(title, content, imageUrl, imageAlt) {
     }
 
     const result = await response.json();
-    console.log("Blog post created:", result);
+    // console.log("Blog post created:", result);
 
     // Fetch the updated list of blog posts
     await getBlogpost();
   } catch (error) {
-    console.error("Error creating blog post", error);
+    // console.error("Error creating blog post", error);
   }
 }
 
@@ -65,7 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (createPostForm) {
     createPostForm.addEventListener("submit", async (event) => {
       event.preventDefault();
-      console.log("Create post button clicked");
+      // console.log("Create post button clicked");
 
       const title = document.getElementById("title").value;
       const content = document.getElementById("content").value;
@@ -77,5 +78,5 @@ document.addEventListener("DOMContentLoaded", () => {
   } else {
     console.error("Element with ID 'createPostForm' not found");
   }
-  console.log(resultJSON);
+  // console.log(resultJSON);
 });

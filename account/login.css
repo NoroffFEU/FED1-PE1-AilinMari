@@ -9,54 +9,14 @@ main {
   padding-bottom: 100px;
 }
 
-h1 {
-  font-family: "Raleway";
-  font-weight: 500;
-  font-size: 32px;
-  color: #830247;
-  margin-top: 0px;
-}
-
-h2 {
-  font-family: "Raleway";
-  font-weight: 500;
-  font-size: 32px;
-  margin-top: 0px;
-  margin-bottom: 0px;
-}
-
-h4 {
-  font-family: "IBM plex Sans Condensed";
-  font-weight: 300;
-  font-size: 20px;
-  letter-spacing: 0.5px;
-}
 
 .nav-btn a {
   text-decoration: none;
   color: black;
 }
 
-h5 {
-  font-family: "IBM plex Sans Condensed";
-  font-weight: 600;
-  font-size: 20px;
-  margin-bottom: 0px;
-}
 
-h6 {
-  font-family: "IBM plex Sans Condensed";
-  font-weight: 500;
-  font-size: 16px;
-  margin-top: 0px;
-}
 
-h7 {
-  font-family: "IBM plex Sans Condensed";
-  font-weight: 300;
-  font-style: italic;
-  font-size: 16px;
-}
 
 input #body {
   height: 250px;

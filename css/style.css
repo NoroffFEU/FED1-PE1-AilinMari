@@ -5,42 +5,6 @@ main {
   margin: 100px 150px 0 150px;
 }
 
-h1 {
-  font-family: "Raleway";
-  font-weight: 500;
-  font-size: 32px;
-  color: #830247;
-}
-
-h4 {
-  font-family: "IBM plex Sans Condensed";
-  font-weight: 300;
-  font-size: 20px;
-  letter-spacing: 0.5px;
-  margin-top: 0px;
-}
-
-h5 {
-  font-family: "IBM plex Sans Condensed";
-  font-weight: 600;
-  font-size: 20px;
-  margin-bottom: 0px;
-}
-
-h6 {
-  font-family: "IBM plex Sans Condensed";
-  font-weight: 500;
-  font-size: 16px;
-  color: #830247;
-}
-
-h7 {
-  font-family: "IBM plex Sans Condensed";
-  font-weight: 300;
-  font-style: italic;
-  font-size: 16px;
-}
-
 header {
   display: flex;
   justify-content: center;
@@ -90,16 +54,6 @@ header button {
   right: 10px;
 }
 
-/* h1 {
-  position: absolute;
-  top: 30%;
-  transform: translateY(-30%);
-  left: 10%;
-  background-color: rgba(255, 206, 235, 0.65);
-  border: none;
-  padding: 60px;
-  border-radius: 50%;
-} */
 
 .slide h1 {
   position: absolute;
@@ -163,7 +117,7 @@ header .read-more {
 
 .post-container {
   background-color: rgba(255, 206, 236, 0.3);
-  height: 400px;
+  /* max-height: 600px; */
   width: 270px;
   display: flex;
   flex-direction: column;
@@ -173,7 +127,7 @@ header .read-more {
 
 section img {
   max-width: 270px;
-  max-height: 240px;
+  max-height: 135px;
 }
 
 section .read-more {
@@ -189,16 +143,10 @@ section .read-more {
   font-size: 16px;
   color: #830247;
   text-decoration: none;
-  margin: 20px 0 10px 0;
+  margin: 20px 0 20px 0;
 }
 
-section h4 {
-  font-family: "Raleway";
-  font-weight: 500;
-  font-size: 20px;
-  letter-spacing: 0.5px;
-  text-align: center;
-}
+
 
 section .delete-btn {
   font-family: "Raleway";
@@ -207,7 +155,7 @@ section .delete-btn {
   color: #fff;
   background-color: #d40004;
   border-radius: 7px;
-  margin: 20px 0 0 0;
+  margin: 20px 0 20px 0;
 }
 
 section .delete-btn:hover {
@@ -219,6 +167,24 @@ section .delete-btn:active {
   background: #fff;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
   color: #d40004;
+}
+
+section .edit-btn {
+  font-family: "Raleway";
+  font-weight: 500;
+  font-size: 16px;
+  color: #fff;
+  background-color: #830247;
+  border-radius: 7px;
+  margin: 20px 0 0 0;
+}
+
+section .edit-btn:hover {
+  background-color: #5c0f3b;
+}
+
+section .edit-btn:active {
+  background-color: #da4988;
 }
 
 section button {

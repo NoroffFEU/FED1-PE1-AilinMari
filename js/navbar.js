@@ -31,7 +31,7 @@ function logOut() {
     } else {
       loginButton.innerHTML = `Log in to your account`;
       loginButton.href = "/account/login.html";
-      createAccountButton.textContent = "Or create account";
+      createAccountButton.textContent = "Or register new account";
       createAccountButton.href = "/account/register.html";
     }
     loginSection.appendChild(loginButton);

@@ -79,7 +79,7 @@ function renderBlogposts(post) {
     img.src = blogpost.media.url;
     img.alt = blogpost.media.alt;
 
-    const postTitle = document.createElement("h4");
+    const postTitle = document.createElement("h5");
     postTitle.textContent = blogpost.title;
 
     const readMoreButton = document.createElement("a");

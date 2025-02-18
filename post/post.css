@@ -4,46 +4,6 @@ main {
   align-items: center;
 }
 
-h1 {
-  font-family: "Raleway";
-  font-weight: 500;
-  font-size: 32px;
-  color: #830247;
-}
-
-h4 {
-  font-family: "IBM plex Sans Condensed";
-  font-weight: 300;
-  font-size: 20px;
-  letter-spacing: 0.5px;
-  margin-top: 0px;
-}
-
-
-h5 {
-  font-family: "IBM plex Sans Condensed";
-  font-weight: 600;
-  font-size: 20px;
-  margin-bottom: 0px;
-}
-
-
-h6 {
-  font-family: "IBM plex Sans Condensed";
-  font-weight: 500;
-  font-size: 16px;
-  margin-top: 0px;
-}
-
-h7 {
-  font-family: "IBM plex Sans Condensed";
-  font-weight: 300;
-  font-style: italic;
-  font-size: 16px;
-}
-
-
-
 #bottom-line {
   display: flex;
   flex-direction: row;
@@ -63,7 +23,7 @@ header img {
   justify-content: flex-end;
   font-size: 32px;
   margin: 0 0 100px 0;
-  color: #DA4988;
+  color: #da4988;
 }
 
 #blogpost h1 {
@@ -73,7 +33,7 @@ header img {
   transform: translateY(-30%);
   left: 10%;
   background-color: hsla(324, 100%, 90%, 0.65);
-  box-shadow:  0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   border: none;
   padding: 60px 100px;
   border-radius: 50%;
@@ -102,7 +62,7 @@ p.post-content {
 
 #blogpost-content {
   background-color: rgba(255, 206, 236, 0.3);
-  margin: 100px 150px 100px 150px;
+  margin: 120px 150px 0 150px;
   padding: 100px 200px 100px 150px;
 }
 
@@ -113,4 +73,62 @@ p.post-content {
   font-size: 16px;
   margin: 100px 0 0 0;
 }
+.updated-date {
+  font-style: italic;
+  font-family: "IBM plex Sans Condensed";
+  font-weight: 300;
+  font-size: 16px;
+}
 
+.edit-btn {
+  font-family: "Raleway";
+  font-weight: 500;
+  font-size: 24px;
+  color: #fff;
+  background-color: #830247;
+  border-radius: 7px;
+  margin: 20px 0 0 0;
+}
+
+.edit-btn:hover {
+  background-color: #5c0f3b;
+}
+.edit-btn:active {
+  background-color: #da4988;
+}
+
+.delete-btn {
+  font-family: "Raleway";
+  font-weight: 500;
+  font-size: 24px;
+  color: #fff;
+  background-color: #d40004;
+  border-radius: 7px;
+  margin: 20px 0 0 0;
+}
+
+.delete-btn:hover {
+  background-color: #990003;
+}
+
+.delete-btn:active {
+  border: 2px solid #d40004;
+  background: #fff;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+  color: #d40004;
+}
+
+#blogpost-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 200px;
+  margin: 20px 0 0 0;
+}
+
+button {
+  width: 30vw;
+  max-width: 360px;
+  height: 50px;
+  cursor: pointer;
+}

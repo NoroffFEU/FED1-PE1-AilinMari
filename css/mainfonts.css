@@ -1,0 +1,43 @@
+h1 {
+    font-family: "Raleway";
+    font-weight: 500;
+    font-size: 32px;
+    color: #830247;
+    margin-top: 0px;
+  }
+
+  h2 {
+    font-family: "Raleway";
+    font-weight: 500;
+    font-size: 24px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+
+  
+  h4 {
+    font-family: "IBM plex Sans Condensed";
+    font-weight: 300;
+    font-size: 20px;
+    letter-spacing: 0.5px;
+
+  }
+  
+  h5 {
+    font-family: "Raleway";
+    font-size: 20px;
+    font-weight: 500;
+    font-size: 20px;
+    letter-spacing: 0.5px;
+    text-align: center;
+    padding: 0 20px;
+  }
+
+  h6 {
+    font-family: "IBM plex Sans Condensed";
+    font-weight: 500;
+    font-size: 16px;
+    color: #830247;
+  }
+
+  

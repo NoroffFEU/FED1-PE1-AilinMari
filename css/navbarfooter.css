@@ -1,9 +1,8 @@
-nav a {
+.line-one a {
   font-family: "Raleway";
   font-weight: 500;
   font-size: 48px;
   color: #830247;
-  margin-bottom: 0px;
   text-decoration: none;
 }
 
@@ -15,6 +14,11 @@ nav a {
 nav h6 {
   margin-top: 0px;
 }
+
+nav h4 {
+  margin-top: 0px;
+}
+
 
 nav {
   display: flex;
@@ -30,6 +34,7 @@ nav {
 
 .line-one {
   text-align: start;
+  margin: 20px 0 0 0;
 }
 
 .line-two {
@@ -72,11 +77,13 @@ nav {
   gap: 54px;
 }
 
+
 #footer-text h6 {
   color: #fff;
   display: flex;
   justify-content: center;
   position: relative;
+
 }
 
 footer {
@@ -177,4 +184,13 @@ footer {
 .heart-grid {
   display: flex;
   justify-content: center;
+}
+
+.heart-grid a {
+  text-decoration: none;
+  color: #830247;
+  font-size: 24px;
+  font-family: "Raleway";
+  font-weight: 600;
+  position: relative;
 }

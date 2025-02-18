@@ -3,9 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- <script src="/js/login.js"></script> -->
-    <script src="/js/navbar.js"></script>
-    <title>register</title>
+    <script src="/js/register.js" type="module"></script>
+    <script src="/js/navbar.js" type="module"></script>
+    <title>Register</title>
     <link rel="stylesheet" href="registrer.css" />
     <link rel="stylesheet" href="/css/navbarfooter.css" />
     <style>
@@ -17,7 +17,7 @@
     <nav>
       <div id="top-line">
         <div class="line-one">
-          <p>Sprinkled Bliss</p>
+          <a href="/index.html">Sprinkled Bliss</a>
           <h4>
             THIS BLOG IS ABOUT ALL OF THE SWEET PASTERY I MAKE EVERY DAY TO
             BRING JOY TO MY -AND YOUR LIFE
@@ -32,7 +32,7 @@
       </div>
       <div id="bottom-line">
         <div class="nav-btn">
-          <a href="post/index.html"><h4>Blog</h4></a>
+          <a href="post/create.html"><h4>Create post</h4></a>
         </div>
         <div class="nav-btn">
           <a href="/index.html"><h4>Home</h4></a>
@@ -44,7 +44,7 @@
     </nav>
     <main>
       <h1>Create a new account</h1>
-      <form id="loginForm">
+      <form id="registerForm">
         <div class="log-in">
           <label for="name"><h4>NAME</h4></label>
           <input type="text" name="name" id="name" />
@@ -53,12 +53,7 @@
           <label for="password"><h4>PASSWORD</h4></label>
           <input type="password" name="password" id="password" />
         </div>
-<!-- <div class="loginFailed"></div>
-        <div class="checkbox">
-          <input type="checkbox" name="remember" id="remember" />
-          <label for="remember"><h4>Remember me</h4></label>
-        </div> -->
-
+        <div class="registerFailed"></div>
         <div class="main-btn">
           <button type="submit" class="login"><h2>Create account</h2></button>
         </div>

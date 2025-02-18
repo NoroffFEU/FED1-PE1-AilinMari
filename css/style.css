@@ -5,7 +5,6 @@ main {
   margin: 100px 150px 0 150px;
 }
 
-
 h1 {
   font-family: "Raleway";
   font-weight: 500;
@@ -21,15 +20,12 @@ h4 {
   margin-top: 0px;
 }
 
-
-
 h5 {
   font-family: "IBM plex Sans Condensed";
   font-weight: 600;
   font-size: 20px;
   margin-bottom: 0px;
 }
-
 
 h6 {
   font-family: "IBM plex Sans Condensed";
@@ -44,7 +40,6 @@ h7 {
   font-style: italic;
   font-size: 16px;
 }
-
 
 header {
   display: flex;
@@ -232,8 +227,6 @@ section button {
   height: 30px;
   cursor: pointer;
 }
-
-
 
 /* https://ibb.co/pBh3b6Nd cake pops
 https://ibb.co/nMbBTSK2  macroner

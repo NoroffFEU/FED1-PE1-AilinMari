@@ -9,13 +9,10 @@ main {
   padding-bottom: 100px;
 }
 
-
 .nav-btn a {
   text-decoration: none;
   color: black;
 }
-
-
 
 input #body {
   height: 250px;
@@ -64,7 +61,7 @@ button {
     margin: 50px 20px 50px 20px;
   }
 
- .log-in input {
+  .log-in input {
     width: 60vw;
     max-width: 350px;
   }
@@ -75,4 +72,3 @@ button {
     max-width: 360px;
   }
 }
-

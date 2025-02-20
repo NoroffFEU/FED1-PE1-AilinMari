@@ -4,7 +4,7 @@ async function getBlogpost() {
   try {
     const response = await fetch(sprinkledBliss);
     const { data } = await response.json();
-    blogposts = data;
+   let blogposts = data;
 
     renderBlogposts(blogposts);
     updateCarousel(blogposts);
@@ -14,6 +14,7 @@ async function getBlogpost() {
 
   console.log("Blogposts:", blogposts);
 }
+getBlogpost();
 
 //Husk å legge inn linking til blogposter i slides
 function updateCarousel(blogposts) {

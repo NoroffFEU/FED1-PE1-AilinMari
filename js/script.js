@@ -4,7 +4,7 @@ async function getBlogpost() {
   try {
     const response = await fetch(sprinkledBliss);
     const { data } = await response.json();
-    blogposts = data;
+    let blogposts = data;
 
     renderBlogposts(blogposts);
     updateCarousel(blogposts);

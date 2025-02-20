@@ -15,9 +15,6 @@ main {
   color: black;
 }
 
-
-
-
 input #body {
   height: 250px;
 }
@@ -63,4 +60,21 @@ button {
   color: #fff;
   background-color: #830247;
   border-radius: 7px;
+}
+
+@media (max-width: 1000px) {
+  main {
+    margin: 50px 20px 50px 20px;
+  }
+
+#email,
+#password {
+    width: 60vw;
+    max-width: 350px;
+  }
+  .main-btn button {
+    width: 60vw;
+    height: 40px;
+    max-width: 360px;
+  }
 }

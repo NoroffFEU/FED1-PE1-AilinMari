@@ -58,3 +58,21 @@ button {
   border-radius: 7px;
   margin-top: 40px;
 }
+
+@media (max-width: 1000px) {
+  main {
+    margin: 50px 20px 50px 20px;
+  }
+
+ .log-in input {
+    width: 60vw;
+    max-width: 350px;
+  }
+
+  form button {
+    width: 60vw;
+    height: 40px;
+    max-width: 360px;
+  }
+}
+

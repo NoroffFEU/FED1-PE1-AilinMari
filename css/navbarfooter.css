@@ -200,9 +200,18 @@ footer {
    margin: 0 50px 0 50px;
  }
 
-#footer-content img {
+#dark-heart3 img,
+#light-pink-heart3 img,
+#dark-heart4 img,
+#light-pink-heart4 img,
+#dark-heart5 img,
+#light-pink-heart5 img
+#dark-heart6 img,
+#light-pink-heart6 img {
 display: none;
 }
+
+
 
 body {
   margin: 0;
@@ -213,18 +222,18 @@ body {
 text-align: center;
 }
 
-.heart-grid a{
+.heart-grid a {
   font-size: 16px;
-
 }
 
 #footer-content {
-  display: flex;
-  flex-direction: row;
+display:grid ;
+grid-template-columns: 4fr 1fr 1fr 1fr 1fr;
+
 }
 
 footer {
-  padding: 20px 20px 0 20px;
+  padding: 20px 20px 0 0;
   margin-top: 60px;
 }
 
@@ -243,4 +252,5 @@ font-size: 12px;
 #top-line {
  display: grid;
   grid-template-columns: 1fr;
-}}
+}
+}

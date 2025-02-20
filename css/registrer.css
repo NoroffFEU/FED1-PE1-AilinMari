@@ -56,6 +56,14 @@ button {
   margin-top: 40px;
 }
 
+.main-btn button:hover {
+  background-color: #5c0f3b;
+}
+
+.main-btn button:active {
+  background-color: #da4988;
+}
+
 @media (max-width: 1000px) {
   main {
     margin: 50px 20px 50px 20px;

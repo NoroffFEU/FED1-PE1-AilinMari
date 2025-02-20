@@ -36,7 +36,7 @@ form {
   text-align: center;
 }
 
-.checkbox {
+/* .checkbox {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -47,7 +47,7 @@ form {
   width: 25px;
   height: 25px;
   border-radius: 7px;
-}
+} */
 
 button {
   width: 30vw;
@@ -60,6 +60,15 @@ button {
   color: #fff;
   background-color: #830247;
   border-radius: 7px;
+  margin-top: 40px;
+}
+
+.main-btn button:hover {
+  background-color: #5c0f3b;
+}
+
+.main-btn button:active {
+  background-color: #da4988;
 }
 
 @media (max-width: 1000px) {

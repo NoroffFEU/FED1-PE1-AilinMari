@@ -91,7 +91,7 @@ function renderBlogposts(post) {
     editPostButton.textContent = "Edit post";
     editPostButton.className = "edit-btn";
     editPostButton.addEventListener("click", () => {
-      window.location.href = `/post/edit.html?id=${blogpost.id}`;
+      window.location.href = `post/edit.html?id=${blogpost.id}`;
     });
 
     const deleteButton = document.createElement("button");

@@ -30,9 +30,9 @@ function logOut() {
      
     } else {
       loginButton.innerHTML = `Log in to your account`;
-      loginButton.href = "/account/login.html";
+      loginButton.href = "/FED1-PE1-AilinMari/account/login.html";
       createAccountButton.textContent = "Or register new account";
-      createAccountButton.href = "/account/register.html";
+      createAccountButton.href = "/FED1-PE1-AilinMari/account/register.html";
     }
     loginSection.appendChild(loginButton);
     createAccount.appendChild(createAccountButton);

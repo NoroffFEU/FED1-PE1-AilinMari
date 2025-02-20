@@ -54,7 +54,7 @@ function renderBlogpostbyId(blogpost) {
   editPostButton.textContent = "Edit post";
   editPostButton.className = "edit-btn";
   editPostButton.addEventListener("click", () => {
-    window.location.href = `/post/edit.html?id=${blogpost.id}`;
+    window.location.href = `../post/edit.html?id=${blogpost.id}`;
   });
 
 
@@ -66,6 +66,7 @@ function renderBlogpostbyId(blogpost) {
     event.preventDefault();
     const postId = event.target.getAttribute("data-id");
     await deleteBlogpost(postId);
+    window.location.href = `../index.html`;
   });
 
   const accessToken = localStorage.getItem("accessToken");
@@ -81,6 +82,34 @@ function renderBlogpostbyId(blogpost) {
   postButtonContainer.appendChild(deleteButton);
 }
 
+async function deleteBlogpost(postId) {
+  const url = `https://v2.api.noroff.dev/blog/posts/ailin_user/${postId}`;
+  const accessToken = localStorage.getItem("accessToken");
+  if (!accessToken) {
+    console.error("Please log in.");
+    return;
+  }
+
+  try {
+    const response = await fetch(url, {
+      method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error("Failed to delete blog post");
+    }
+
+    console.log("Blog post deleted:", postId);
+
+    // Fetch the updated list of blog posts
+    await getBlogpost();
+  } catch (error) {
+    console.error("Error deleting blog post", error);
+  }
+}
 
 
 function copyToClipboard() {

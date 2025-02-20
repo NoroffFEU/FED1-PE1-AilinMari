@@ -74,6 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const imageAlt = document.getElementById("imageAlt").value;
 
       await createBlogpost(title, content, imageUrl, imageAlt);
+      window.location.href = `../index.html`;
     });
   } else {
     console.error("Element with ID 'createPostForm' not found");

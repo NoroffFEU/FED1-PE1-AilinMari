@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
       // }
 
       // Refresh the site after successful login
-      window.location.reload();
+      window.location.href = `../index.html`;
     } catch (error) {
       console.log("Error:", error);
       // Display error message to user

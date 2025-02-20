@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", async () => {
     checkLoginStatus();
-    const userName = await getAuthor();
-    updateNavbar(userName);
+    // const userName = await getAuthor();
+    // updateNavbar(userName);
 
 function logOut() {
     localStorage.removeItem("accessToken");

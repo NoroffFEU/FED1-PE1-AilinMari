@@ -6,6 +6,9 @@ document.addEventListener("DOMContentLoaded", async () => {
 function logOut() {
     localStorage.removeItem("accessToken");
     localStorage.removeItem("userId");
+    localStorage.removeItem("name");
+    localStorage.removeItem("result");
+    
     window.location.reload();
   }
   
@@ -43,4 +46,6 @@ function logOut() {
   
 
   });
+  
+
   

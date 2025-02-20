@@ -25,6 +25,8 @@ header {
   position: relative;
   min-width: 100%;
   box-sizing: border-box;
+
+
 }
 
 .slides img {
@@ -33,7 +35,7 @@ header {
   object-fit: cover;
 }
 
-header button {
+.carousel button {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -102,13 +104,13 @@ p {
   text-align: center;
 }
 
-header .read-more {
+.read-more {
   font-style: normal;
 }
 
 .thumbnail-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
   justify-items: center;
   gap: 6rem;
   max-width: 1140px;

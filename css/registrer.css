@@ -69,12 +69,14 @@ button {
     margin: 50px 20px 50px 20px;
   }
 
-  .log-in input {
+  #name,
+  #email,
+  #password {
     width: 60vw;
     max-width: 350px;
   }
 
-  form button {
+  button {
     width: 60vw;
     height: 40px;
     max-width: 360px;

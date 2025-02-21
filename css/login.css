@@ -19,7 +19,7 @@ input #body {
   height: 250px;
 }
 
-.log-in input {
+.log-in-inputs input {
   width: 30vw;
   max-width: 360px;
   min-height: 30px;

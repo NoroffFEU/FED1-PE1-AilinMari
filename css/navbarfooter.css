@@ -19,7 +19,6 @@ nav h4 {
   margin-top: 0px;
 }
 
-
 nav {
   display: flex;
   flex-direction: column;
@@ -77,13 +76,11 @@ nav {
   gap: 54px;
 }
 
-
 #footer-text h6 {
   color: #fff;
   display: flex;
   justify-content: center;
   position: relative;
-
 }
 
 footer {
@@ -194,63 +191,137 @@ footer {
   font-weight: 600;
   position: relative;
 }
-
-@media (max-width: 1000px){
- nav {
-   margin: 0 50px 0 50px;
- }
-
-#dark-heart3 img,
-#light-pink-heart3 img,
-#dark-heart4 img,
-#light-pink-heart4 img,
-#dark-heart5 img,
-#light-pink-heart5 img
-#dark-heart6 img,
-#light-pink-heart6 img {
-display: none;
-}
-
-
-
-body {
-  margin: 0;
-  padding: 0;
-}
-
-#footer-text h6 {
-text-align: center;
-}
-
-.heart-grid a {
-  font-size: 16px;
-}
-
-#footer-content {
-display:grid ;
-grid-template-columns: 4fr 1fr 1fr 1fr 1fr;
-
-}
-
-footer {
-  padding: 20px 20px 0 0;
-  margin-top: 60px;
-}
-
-.line-two {
+.menu-btn {
   display: none;
 }
 
-.line-one a {
-  font-size: 32px;
-}
+@media (max-width: 1000px) {
+  /* header {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    justify-items: center;
+  } */
+  nav {
+    margin: 0 20px 0 20px;
+  }
 
-.line-one h4 {
-font-size: 12px;
-}
+  .line-two {
+    display: block;
+    text-align: end;
 
-#top-line {
- display: grid;
-  grid-template-columns: 1fr;
-}
+    position: relative;
+  }
+
+  .menu-btn {
+    display: block;
+    position: absolute;
+
+  }
+  #hamburger-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    margin: 10px 0 0 0;
+    cursor: pointer;
+  }
+
+  #top-line {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    align-items: center;
+  }
+
+  .menu-btn .line {
+    background-color: #da4988;
+    height: 4px;
+    width: 30px;
+    margin: 4px 0;
+  }
+
+  .log-in a {
+    font-size: 16px;
+    color: #fff;
+  }
+
+  .create-account a {
+    font-size: 14px;
+    color: #fff;
+  }
+
+  #login-create {
+    background-color: #da4988;
+    padding: 20px;
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    z-index: 10;
+    margin: 35px 0 0 0;
+    text-align: center;
+    gap: 20px;
+  }
+
+  #login-create.active {
+    display: flex;
+/* align-items: end; */
+  }
+
+  .log-in {
+    color: #fff;
+    font-size: 16px;
+  }
+  
+  .create-account {
+    font-size: 14px;
+    color: #fff;
+    font-style: italic;
+  }
+
+  #dark-heart3 img,
+  #light-pink-heart3 img,
+  #dark-heart4 img,
+  #light-pink-heart4 img,
+  #dark-heart5 img,
+  #light-pink-heart5 img #dark-heart6 img,
+  #light-pink-heart6 img {
+    display: none;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
+  #footer-text h6 {
+    text-align: center;
+  }
+
+  .heart-grid a {
+    font-size: 16px;
+  }
+
+  #footer-content {
+    display: grid;
+    grid-template-columns: 4fr 1fr 1fr 1fr 1fr;
+  }
+
+  footer {
+    padding: 20px 20px 0 20px;
+    margin-top: 60px;
+  }
+
+  /* .line-two {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    text-align: center;
+    margin: 0px 0 20px 0;
+  } */
+
+  .line-one a {
+    font-size: 32px;
+  }
+
+  .line-one h4 {
+    font-size: 12px;
+  }
 }

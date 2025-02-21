@@ -169,6 +169,6 @@ async function deleteBlogpost(postId) {
 
 //auther register
 
-const authorRegister = "https://v2.api.noroff.dev/auth/register";
+// const authorRegister = "https://v2.api.noroff.dev/auth/register";
 
-const authorLogIn = "https://v2.api.noroff.dev/auth/login";
+// const authorLogIn = "https://v2.api.noroff.dev/auth/login";

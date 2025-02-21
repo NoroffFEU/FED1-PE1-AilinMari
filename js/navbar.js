@@ -1,17 +1,24 @@
 document.addEventListener("DOMContentLoaded", async () => {
-    checkLoginStatus();
-    // const userName = await getAuthor();
-    // updateNavbar(userName);
+  checkLoginStatus();
+  // const userName = await getAuthor();
+  // updateNavbar(userName);
 
-function logOut() {
+  const hamburger = document.getElementById("hamburger-menu");
+  const menu = document.getElementById("login-create");
+
+  hamburger.addEventListener("click", () => {
+    menu.classList.toggle("active");
+  });
+
+  function logOut() {
     localStorage.removeItem("accessToken");
     localStorage.removeItem("userId");
     localStorage.removeItem("name");
     localStorage.removeItem("result");
-    
+
     window.location.reload();
   }
-  
+
   function checkLoginStatus() {
     const accessToken = localStorage.getItem("accessToken");
     const name = localStorage.getItem("name");
@@ -19,18 +26,12 @@ function logOut() {
     const loginButton = document.createElement("a");
     const createAccount = document.querySelector(".create-account");
     const createAccountButton = document.createElement("a");
-  
-  
+
     if (accessToken && name) {
-  
-      loginSection.textContent = `Logged in as ${name}`; 
+      loginSection.textContent = `Logged in as ${name}`;
       createAccount.textContent = "Log out";
-      // createAccountButton.addEventListener("click", logOut);
-      
-      // loginSection.innerHTML = `<h5>Logged in as ${userId}</h5><h6><a href="#" id="logout">Log out</a></h6>`;
-      createAccount.addEventListener("click", logOut)
+      createAccount.addEventListener("click", logOut);
       createAccount.href = "#";
-     
     } else {
       loginButton.innerHTML = `Log in to your account`;
       loginButton.href = "/FED1-PE1-AilinMari/account/login.html";
@@ -39,13 +40,5 @@ function logOut() {
     }
     loginSection.appendChild(loginButton);
     createAccount.appendChild(createAccountButton);
-
-  
   }
-  
-  
-
-  });
-  
-
-  
+});

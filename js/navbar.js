@@ -41,11 +41,13 @@ document.addEventListener("DOMContentLoaded", async () => {
     loginSection.appendChild(loginButton);
     createAccount.appendChild(createAccountButton);
   }
-  const newPostButton = document.querySelector("#new-post");
 
-  const accessToken = localStorage.getItem("accessToken");
-  const name = localStorage.getItem("name");
-  if (!accessToken || blogpost.author.name !== name) {
-    newPostButton.style.display = "none";
-  }
 });
+
+const newPostButton = document.querySelector("#new-post");
+
+const accessToken = localStorage.getItem("accessToken");
+const name = localStorage.getItem("name");
+if (!accessToken || author.name !== name) {
+  newPostButton.style.display = "none";
+}

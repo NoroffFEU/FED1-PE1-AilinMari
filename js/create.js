@@ -15,13 +15,14 @@ document.addEventListener("DOMContentLoaded", () => {
       const content = document.getElementById("content").value;
       const imageUrl = document.getElementById("imageUrl").value;
       const imageAlt = document.getElementById("imageAlt").value;
-      
+
       await blogApi.createBlogpost(title, content, imageUrl, imageAlt);
 
       window.location.href = `../index.html`;
     });
-  } else {
+  } else {    
     console.error("Element with ID 'createPostForm' not found");
+
   }
   // console.log(resultJSON);
 });

@@ -1,20 +1,12 @@
-const sprinkledBliss = "https://v2.api.noroff.dev/blog/posts/ailin_user";
+import { BlogApi } from "./api-client.js";
+let blogApi = new BlogApi();
 const urlParams = new URLSearchParams(window.location.search);
 const postId = urlParams.get("id");
 
-async function getBlogpost() {
-  try {
-    const response = await fetch(`${sprinkledBliss}/${postId}`);
-    if (!response.ok) {
-      throw new Error("Failed to fetch blog post");
-    }
-    const post = await response.json();
-    console.log("Blogpost:", post);
+async function loadBlogPost() {
+  let blogPost = await blogApi.getBlogpostByID(postId);
 
-    populateFormFields(post.data);
-  } catch (error) {
-    console.error("Error fetching blogpost info", error);
-  }
+  populateFormFields(blogPost);
 }
 
 function populateFormFields(post) {
@@ -25,46 +17,18 @@ function populateFormFields(post) {
 }
 
 async function updateBlogpost(title, content, imageUrl, imageAlt) {
-  const url = `${sprinkledBliss}/${postId}`;
-  const accessToken = localStorage.getItem("accessToken");
-  if (!accessToken) {
-    console.error("Please log in.");
-    return;
+  try { 
+    await blogApi.updateBlogpost(postId, title, content, imageUrl, imageAlt);
   }
-  const data = {
-    title: title,
-    body: content,
-    media: {
-      url: imageUrl,
-      alt: imageAlt || "Default image description",
-    },
-  };
-  try {
-    const response = await fetch(url, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${accessToken}`,
-      },
-      body: JSON.stringify(data),
-    });
-
-    if (!response.ok) {
-      throw new Error("Failed to update blog post");
-    }
-
-    const result = await response.json();
-    console.log("Blog post updated:", result);
-
-    // Redirect to the blog post page
-    window.location.href = `/FED1-PE1-AilinMari/post/index.html?id=${postId}`;
-  } catch (error) {
-    console.error("Error updating blog post", error);
+  catch (error) {
+    document.getElementById("creating-failed").textContent = "Failed to update post, please fill out all the fields";
   }
+  // Redirect to the blog post page
+  window.location.href = `/FED1-PE1-AilinMari/post/index.html?id=${postId}`;
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  getBlogpost();
+  loadBlogPost();
 
   const editPostForm = document.getElementById("createPostForm");
 

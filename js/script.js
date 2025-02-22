@@ -1,10 +1,10 @@
-const sprinkledBliss = "https://v2.api.noroff.dev/blog/posts/ailin_user";
+import { BlogApi } from "./api-client.js";
+let blogApi = new BlogApi();
+
 // const accessToken = localStorage.getItem("accessToken");
 async function getBlogpost() {
   try {
-    const response = await fetch(sprinkledBliss);
-    const { data } = await response.json();
-   let blogposts = data;
+    let blogposts = await blogApi.getBlogposts();
 
     renderBlogposts(blogposts);
     updateCarousel(blogposts);
@@ -105,11 +105,19 @@ function renderBlogposts(post) {
       await deleteBlogpost(postId);
     });
 
+    //   const newPostButton = document.querySelector("new-post");
+    // newPostButton = document.createElement("a");
+    // newPostButton.textContent = "New post";
+    // newPostButton.href = "/post/create.html";
+    // }
+    const newPostButton = document.querySelector("#new-post");
+
     const accessToken = localStorage.getItem("accessToken");
     const name = localStorage.getItem("name");
     if (!accessToken || blogpost.author.name !== name) {
       editPostButton.style.display = "none";
       deleteButton.style.display = "none";
+      newPostButton.style.display = "none";
     }
 
     link.appendChild(postTitle);
@@ -126,32 +134,12 @@ function renderBlogposts(post) {
 }
 
 async function deleteBlogpost(postId) {
-  const url = `https://v2.api.noroff.dev/blog/posts/ailin_user/${postId}`;
-  const accessToken = localStorage.getItem("accessToken");
-  if (!accessToken) {
-    console.error("Please log in.");
-    return;
-  }
+  await blogApi.deleteBlogpost(postId);
 
-  try {
-    const response = await fetch(url, {
-      method: "DELETE",
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
-      },
-    });
+  console.log("Blog post deleted:", postId);
 
-    if (!response.ok) {
-      throw new Error("Failed to delete blog post");
-    }
-
-    console.log("Blog post deleted:", postId);
-
-    // Fetch the updated list of blog posts
-    await getBlogpost();
-  } catch (error) {
-    console.error("Error deleting blog post", error);
-  }
+  // Fetch the updated list of blog posts
+  await getBlogpost();
 }
 
 // const navbarLogin = document.querySelector(".log-in");

@@ -40,14 +40,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
       localStorage.setItem("accessToken", accessToken);
       localStorage.setItem("name", userId);
-      // let rememberMe = document.getElementById("remember").checked;
-      // if (rememberMe) {
-      //   localStorage.setItem("email", emailField);
-      //   localStorage.setItem("password", passwordField);
-      // } else {
-      //   localStorage.removeItem("email");
-      //   localStorage.removeItem("password");
-      // }
 
       // Refresh the site after successful login
       window.location.href = `../index.html`;

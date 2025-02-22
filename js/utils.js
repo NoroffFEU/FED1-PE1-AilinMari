@@ -7,5 +7,17 @@ export class Utils {
         return postId;
     }
 
+    // try {
+    //     const response = await fetch(
+    //         `https://v2.api.noroff.dev/blog/posts/${name}`, 
+    //         {
+    //             method: "GET",
+    //             headers: {
+    //                 accept: "application/json",     
+    //             },
+    //         }
+    //     );
+    // }
+
 
 }

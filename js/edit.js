@@ -57,7 +57,7 @@ async function updateBlogpost(title, content, imageUrl, imageAlt) {
     console.log("Blog post updated:", result);
 
     // Redirect to the blog post page
-    window.location.href = `/post/index.html?id=${postId}`;
+    window.location.href = `/FED1-PE1-AilinMari/post/index.html?id=${postId}`;
   } catch (error) {
     console.error("Error updating blog post", error);
   }

@@ -42,7 +42,7 @@ export class BlogApi {
         alt: imageAlt || "Default image description",
       },
     };
-    try {
+    
       const response = await fetch(this.blogUrl, {
         method: "POST",
         headers: {
@@ -57,9 +57,7 @@ export class BlogApi {
       }
 
       return await response.json();
-    } catch (error) {
-      console.error("Error creating blog post", error);
-    }
+
   }
 
   async updateBlogpost(postId, title, content, imageUrl, imageAlt) {

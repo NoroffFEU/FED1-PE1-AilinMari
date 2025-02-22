@@ -105,11 +105,19 @@ function renderBlogposts(post) {
       await deleteBlogpost(postId);
     });
 
+    //   const newPostButton = document.querySelector("new-post");
+    // newPostButton = document.createElement("a");
+    // newPostButton.textContent = "New post";
+    // newPostButton.href = "/post/create.html";
+    // }
+    const newPostButton = document.querySelector("#new-post");
+
     const accessToken = localStorage.getItem("accessToken");
     const name = localStorage.getItem("name");
     if (!accessToken || blogpost.author.name !== name) {
       editPostButton.style.display = "none";
       deleteButton.style.display = "none";
+      newPostButton.style.display = "none";
     }
 
     link.appendChild(postTitle);

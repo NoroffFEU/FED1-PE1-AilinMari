@@ -1,10 +1,19 @@
 export class BlogApi {
   constructor() {
     this.baseUrl = "https://v2.api.noroff.dev";
-    this.blogName = "ailin_user";
+    this.blogName = this.getBlogName();
     this.blogUrl = `${this.baseUrl}/blog/posts/${this.blogName}`;
     this.authUrl = `${this.baseUrl}/auth`;
   }
+  getBlogName() {
+    var loggedInUserName = localStorage.getItem("name");
+    if (loggedInUserName) {
+      return loggedInUserName;
+    }
+    return "ailin_user";
+  }
+
+  
 
   async getBlogpostByID(postId) {
     try {
@@ -42,22 +51,21 @@ export class BlogApi {
         alt: imageAlt || "Default image description",
       },
     };
-    
-      const response = await fetch(this.blogUrl, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${accessToken}`,
-        },
-        body: JSON.stringify(data),
-      });
 
-      if (!response.ok) {
-        throw new Error("Failed to create blog post");
-      }
+    const response = await fetch(this.blogUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${accessToken}`,
+      },
+      body: JSON.stringify(data),
+    });
 
-      return await response.json();
+    if (!response.ok) {
+      throw new Error("Failed to create blog post");
+    }
 
+    return await response.json();
   }
 
   async updateBlogpost(postId, title, content, imageUrl, imageAlt) {
@@ -113,4 +121,5 @@ export class BlogApi {
       console.error("Error deleting blog post", error);
     }
   }
+  
 }

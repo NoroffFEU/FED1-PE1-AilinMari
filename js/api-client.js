@@ -1,5 +1,4 @@
 
-
 export class BlogApi {
     constructor() {
         this.baseUrl = "https://v2.api.noroff.dev";

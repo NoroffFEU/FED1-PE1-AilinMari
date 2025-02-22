@@ -1,14 +1,14 @@
-const sprinkledBliss = "https://v2.api.noroff.dev/blog/posts/ailin_user";
+import { BlogApi } from "./api-client.js";
+let blogApi = new BlogApi();
 
 const urlParams = new URLSearchParams(window.location.search);
 const postId = urlParams.get("id");
 
 async function getBlogpostByID() {
   try {
-    const response = await fetch(`${sprinkledBliss}/${postId}`);
-    const { data } = await response.json();
+let blogpost = await blogApi.getBlogpostByID(postId);
 
-    renderBlogpostbyId(data);
+    renderBlogpostbyId(blogpost);
   } catch (error) {
     console.error("Error fetching blogpost", error);
   }
@@ -83,32 +83,10 @@ function renderBlogpostbyId(blogpost) {
 }
 
 async function deleteBlogpost(postId) {
-  const url = `https://v2.api.noroff.dev/blog/posts/ailin_user/${postId}`;
-  const accessToken = localStorage.getItem("accessToken");
-  if (!accessToken) {
-    console.error("Please log in.");
-    return;
-  }
+await blogApi.deleteBlogpost(postId);
 
-  try {
-    const response = await fetch(url, {
-      method: "DELETE",
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
-      },
-    });
+window.location.href = `../index.html`;
 
-    if (!response.ok) {
-      throw new Error("Failed to delete blog post");
-    }
-
-    console.log("Blog post deleted:", postId);
-
-    // Fetch the updated list of blog posts
-    await getBlogpost();
-  } catch (error) {
-    console.error("Error deleting blog post", error);
-  }
 }
 
 

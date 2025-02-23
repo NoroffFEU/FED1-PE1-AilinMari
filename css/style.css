@@ -5,11 +5,6 @@ main {
   margin: 100px 150px 0 150px;
 }
 
-header {
-  display: flex;
-  justify-content: center;
-}
-
 .carousel {
   position: relative;
   max-width: 100%;
@@ -211,7 +206,7 @@ section button {
     padding: 30px 50px 30px 50px;
   }
 
- .carousel button {
+  .carousel button {
     padding: 15px;
     font-size: 24px;
   }
@@ -220,14 +215,13 @@ section button {
     font-size: 12px;
   }
 
-.slide a{
+  .slide a {
     font-size: 14px;
   }
 
   .slides img {
     height: 300px;
   }
-
 }
 
 /* https://ibb.co/pBh3b6Nd cake pops

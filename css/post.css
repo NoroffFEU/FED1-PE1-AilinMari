@@ -11,7 +11,7 @@ main {
   gap: 54px;
 }
 
-header img {
+#blogpost img {
   width: 100%;
   height: 500px;
   object-fit: cover;

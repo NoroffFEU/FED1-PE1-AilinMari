@@ -178,16 +178,16 @@ export class BlogApi {
       },
     };
     try {
-        const errorMessage = "Failed to delete blog post";
-        const response = await fetch(`${this.blogUrl}/${postId}`, options);
-        if (!response.ok) {
-          throw new Error(`${errorMessage}. Status: ${response.status}`);
-        }
-        return;
-      } catch (error) {
-        console.error(errorMessage, error);
-        throw error;
+      const errorMessage = "Failed to delete blog post";
+      const response = await fetch(`${this.blogUrl}/${postId}`, options);
+      if (!response.ok) {
+        throw new Error(`${errorMessage}. Status: ${response.status}`);
       }
+      return;
+    } catch (error) {
+      console.error(errorMessage, error);
+      throw error;
+    }
   }
 
   /**

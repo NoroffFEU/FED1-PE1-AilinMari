@@ -17,10 +17,14 @@ function populateFormFields(post) {
 }
 
 async function updateBlogpost(title, content, imageUrl, imageAlt) {
-  try { 
+
+  try {
     await blogApi.updateBlogpost(postId, title, content, imageUrl, imageAlt);
   }
   catch (error) {
+    if (error instanceof AuthError) {
+      document.getElementById("creating-failed").textContent = "Failed to update post, you must be logged in to update a post";
+    }
     document.getElementById("creating-failed").textContent = "Failed to update post, please fill out all the fields";
   }
   // Redirect to the blog post page
@@ -34,6 +38,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (editPostForm) {
     editPostForm.addEventListener("submit", async (event) => {
+      if (!createPostForm.checkValidity()) {
+        return;
+      }
+
       event.preventDefault();
 
       const title = document.getElementById("title").value;

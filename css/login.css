@@ -24,6 +24,10 @@ input #body {
   min-height: 30px;
 }
 
+.log-in-inputs label {
+  margin: 20px 0;
+}
+
 input {
   border-radius: 7px;
   border-color: #da4988;
@@ -33,6 +37,17 @@ form {
   width: 100%;
   max-width: 980px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.log-in-inputs {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 button {

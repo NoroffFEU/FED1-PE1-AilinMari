@@ -32,6 +32,7 @@ form textarea {
 form input[type="text"],
 form input[type="url"] {
   min-height: 30px;
+  margin: 20px 0;
 }
 
 form textarea {
@@ -39,6 +40,11 @@ form textarea {
   height: auto;
   resize: vertical;
   overflow-y: hidden;
+  margin: 20px 0;
+}
+
+#create {
+  margin-top: 20px;
 }
 
 form button {
@@ -49,7 +55,6 @@ form button {
   border-radius: 7px;
   cursor: pointer;
   height: 50px;
-  margin-top: 40px;
 }
 
 form button:hover {

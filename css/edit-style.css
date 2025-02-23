@@ -17,6 +17,9 @@ form {
   align-items: center;
 }
 
+form label {
+  margin: 20px 0;
+}
 
 form input[type="text"],
 form input[type="url"],
@@ -51,6 +54,9 @@ form button {
   border-radius: 7px;
   cursor: pointer;
   height: 50px;
+}
+
+#create {
   margin-top: 40px;
 }
 

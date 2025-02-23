@@ -24,6 +24,17 @@ input #body {
   min-height: 30px;
 }
 
+.log-in-inputs label {
+  margin: 20px 0;
+}
+
+.log-in-inputs {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 input {
   border-radius: 7px;
   border-color: #da4988;

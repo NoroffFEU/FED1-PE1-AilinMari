@@ -1,5 +1,6 @@
 import { BlogApi } from "./api-client.js";
 let blogApi = new BlogApi();
+
 document.addEventListener("DOMContentLoaded", async () => {
   checkLoginStatus();
   // const userName = await getAuthor();

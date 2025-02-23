@@ -49,7 +49,6 @@ function updateCarousel(blogposts) {
   });
 }
 
-getBlogpost();
 
 let currentIndex = 0;
 

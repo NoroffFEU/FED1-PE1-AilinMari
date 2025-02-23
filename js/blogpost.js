@@ -1,4 +1,4 @@
-import { BlogApi } from "./api-client.js";
+import { BlogApi, AuthError } from "./api-client.js";
 let blogApi = new BlogApi();
 
 const urlParams = new URLSearchParams(window.location.search);
@@ -6,7 +6,7 @@ const postId = urlParams.get("id");
 
 async function getBlogpostByID() {
   try {
-let blogpost = await blogApi.getBlogpostByID(postId);
+    let blogpost = await blogApi.getBlogpostByID(postId);
 
     renderBlogpostbyId(blogpost);
   } catch (error) {
@@ -26,15 +26,15 @@ function renderBlogpostbyId(blogpost) {
 
   const author = document.createElement("p");
   author.textContent = "By: " + blogpost.author.name;
-  
+
   postContainer.appendChild(img);
   postContainer.appendChild(postTitle);
   postTitle.appendChild(author);
 
   const postContentContainer = document.getElementById("blogpost-content");
 
-  const paragraphs = blogpost.body.split('\n');
-  paragraphs.forEach(paragraph => {
+  const paragraphs = blogpost.body.split("\n");
+  paragraphs.forEach((paragraph) => {
     const postContent = document.createElement("p");
     postContent.textContent = paragraph;
     postContent.className = "post-content";
@@ -56,7 +56,6 @@ function renderBlogpostbyId(blogpost) {
   editPostButton.addEventListener("click", () => {
     window.location.href = `../post/edit.html?id=${blogpost.id}`;
   });
-
 
   const deleteButton = document.createElement("button");
   deleteButton.textContent = "Delete post";
@@ -83,22 +82,30 @@ function renderBlogpostbyId(blogpost) {
 }
 
 async function deleteBlogpost(postId) {
-await blogApi.deleteBlogpost(postId);
-
-window.location.href = `../index.html`;
-
+  try {
+    await blogApi.deleteBlogpost(postId);
+    window.location.href = `../index.html`;
+  } catch (error) {
+    if (error instanceof AuthError) {
+      alert("Failed to delete post. You must be logged in to delete a post.");
+      return;
+    }
+    alert("Failed to delete post");
+  }
 }
-
 
 function copyToClipboard() {
   const linkIcon = document.querySelector(".link-icon");
   linkIcon.addEventListener("click", () => {
     const url = window.location.href;
-    navigator.clipboard.writeText(url).then(() => {
-      alert("Link copied to clipboard!");
-    }).catch(err => {
-      console.error("Failed to copy link: ", err);
-    });
+    navigator.clipboard
+      .writeText(url)
+      .then(() => {
+        alert("Link copied to clipboard!");
+      })
+      .catch((err) => {
+        console.error("Failed to copy link: ", err);
+      });
   });
 }
 

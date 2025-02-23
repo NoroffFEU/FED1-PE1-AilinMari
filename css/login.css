@@ -9,7 +9,6 @@ main {
   padding-bottom: 100px;
 }
 
-
 .nav-btn a {
   text-decoration: none;
   color: black;
@@ -35,19 +34,6 @@ form {
   max-width: 980px;
   text-align: center;
 }
-
-/* .checkbox {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 15px;
-}
-
-.checkbox input {
-  width: 25px;
-  height: 25px;
-  border-radius: 7px;
-} */
 
 button {
   width: 30vw;
@@ -76,8 +62,8 @@ button {
     margin: 50px 20px 50px 20px;
   }
 
-#email,
-#password {
+  #email,
+  #password {
     width: 60vw;
     max-width: 350px;
   }

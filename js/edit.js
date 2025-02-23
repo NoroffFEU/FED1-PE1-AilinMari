@@ -1,4 +1,4 @@
-import { BlogApi } from "./api-client.js";
+import { BlogApi, AuthError } from "./api-client.js";
 let blogApi = new BlogApi();
 const urlParams = new URLSearchParams(window.location.search);
 const postId = urlParams.get("id");
@@ -20,15 +20,17 @@ async function updateBlogpost(title, content, imageUrl, imageAlt) {
 
   try {
     await blogApi.updateBlogpost(postId, title, content, imageUrl, imageAlt);
+ 
+    // Redirect to the blog post page
+    window.location.href = `/FED1-PE1-AilinMari/post/index.html?id=${postId}`;
   }
   catch (error) {
     if (error instanceof AuthError) {
       document.getElementById("creating-failed").textContent = "Failed to update post, you must be logged in to update a post";
+      return;
     }
     document.getElementById("creating-failed").textContent = "Failed to update post, please fill out all the fields";
   }
-  // Redirect to the blog post page
-  window.location.href = `/FED1-PE1-AilinMari/post/index.html?id=${postId}`;
 }
 
 document.addEventListener("DOMContentLoaded", () => {

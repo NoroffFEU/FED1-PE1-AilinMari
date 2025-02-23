@@ -1,10 +1,6 @@
-// import { BlogApi } from "./api-client.js";
-// let blogApi = new BlogApi();
 
 document.addEventListener("DOMContentLoaded", async () => {
   checkLoginStatus();
-  // const userName = await getAuthor();
-  // updateNavbar(userName);
 
   const hamburger = document.getElementById("hamburger-menu");
   const menu = document.getElementById("login-create");

@@ -241,3 +241,8 @@ export class BlogApi {
     return data;
   }
 }
+
+// Used AI to learn the coding "methods" and understanding how to use this method in a best way. 
+// And also helped me understand how to fetch and post to the API better. Not copied codes. 
+// Just used it for inspiration to write my own codes with the same methods :)
+// I put in some comments the same way it did, so I can understand it better, and remember better next time I need to use it.

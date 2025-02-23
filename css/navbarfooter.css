@@ -259,7 +259,6 @@ footer {
 
   #login-create.active {
     display: flex;
-/* align-items: end; */
   }
 
   .log-in  {

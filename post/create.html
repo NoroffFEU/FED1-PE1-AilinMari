@@ -47,26 +47,55 @@
           <a href="../index.html"><h4>Home</h4></a>
         </div>
         <div class="nav-btn">
-          <a href="#"><h4>About</h4></a>
+          <a href="../about.html"><h4>About</h4></a>
         </div>
       </div>
     </nav>
     <main>
       <h1>Create a New Blog Post</h1>
       <form id="createPostForm">
-        <label for="title"><h4>POST TITLE</h4> </label>
-        <input type="text" id="title" name="title" />
+        <label for="title">
+          <h4>POST TITLE</h4>
+        </label>
+        <input
+          type="text"
+          id="title"
+          name="title"
+          required
+          minlength="2"
+          maxlength="100"
+        />
 
-        <label for="content"><h4>POST CONTENT</h4></label>
-        <textarea id="content" name="content"></textarea>
-
-        <label for="imageUrl"><h4>IMAGE URL</h4></label>
+        <label for="imageUrl">
+          <h4>IMAGE URL</h4>
+        </label>
         <input type="url" id="imageUrl" name="imageUrl" />
 
-        <label for="imageAlt"><h4>IMAGE ALT TEXT</h4></label>
-        <input type="text" id="imageAlt" name="imageAlt" />
-        <div id="creating-failed"></div>
-        <button type="submit" id="create"><h2>Create post</h2></button>
+        <label for="imageAlt">
+          <h4>IMAGE ALT TEXT</h4>
+        </label>
+        <input
+          type="text"
+          id="imageAlt"
+          name="imageAlt"
+          required
+          minlength="2"
+        />
+
+        <label for="content">
+          <h4>POST CONTENT</h4>
+        </label>
+        <textarea
+          id="content"
+          name="content"
+          required
+          minlength="10"
+        ></textarea>
+
+        <button type="submit" id="create">
+          <h2>Create post</h2>
+        </button>
+        <span class="create-error" id="creating-failed"></span>
       </form>
     </main>
     <footer>

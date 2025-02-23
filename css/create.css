@@ -29,6 +29,18 @@ form textarea {
   flex-direction: column;
 }
 
+form input[type="text"],
+form input[type="url"] {
+  min-height: 30px;
+}
+
+form textarea {
+  min-height: 150px;
+  height: auto;
+  resize: vertical;
+  overflow-y: hidden;
+}
+
 form button {
   width: 30vw;
   max-width: 360px;

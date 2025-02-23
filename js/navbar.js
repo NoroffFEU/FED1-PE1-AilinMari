@@ -1,3 +1,5 @@
+import { BlogApi } from "./api-client.js";
+let blogApi = new BlogApi();
 document.addEventListener("DOMContentLoaded", async () => {
   checkLoginStatus();
   // const userName = await getAuthor();
@@ -48,6 +50,6 @@ const newPostButton = document.querySelector("#new-post");
 
 const accessToken = localStorage.getItem("accessToken");
 const name = localStorage.getItem("name");
-if (!accessToken || author.name !== name) {
+if (!accessToken || name !== name) {
   newPostButton.style.display = "none";
 }

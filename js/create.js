@@ -1,28 +1,38 @@
-import { BlogApi } from "./api-client.js";
+import { BlogApi, AuthError } from "./api-client.js";
 let blogApi = new BlogApi();
 
 document.addEventListener("DOMContentLoaded", () => {
-  // const result = localStorage.getItem("result");
-  // const JSONresult =  JSON.parse(result);
   const createPostForm = document.getElementById("createPostForm");
 
   if (createPostForm) {
     createPostForm.addEventListener("submit", async (event) => {
+      if (!createPostForm.checkValidity()) {
+        return;
+      }
+
       event.preventDefault();
-      // console.log("Create post button clicked");
 
       const title = document.getElementById("title").value;
       const content = document.getElementById("content").value;
       const imageUrl = document.getElementById("imageUrl").value;
       const imageAlt = document.getElementById("imageAlt").value;
 
-      await blogApi.createBlogpost(title, content, imageUrl, imageAlt);
-
-      window.location.href = `../index.html`;
+      try {
+        await blogApi.createBlogpost(title, content, imageUrl, imageAlt);
+        window.location.href = `../index.html`;
+      } catch (error) {
+        if (error instanceof AuthError) {
+          displayCreationError("Failed to create post. You must be logged in to create a post.");
+        } else {
+          displayCreationError("Failed to create post. Verify you filled out all the fields and try again later.");
+        }
+      }
     });
-  } else {    
+  } else {
     console.error("Element with ID 'createPostForm' not found");
-
   }
-  // console.log(resultJSON);
 });
+function displayCreationError(message) {
+  let creatingFailedDiv = document.getElementById("creating-failed");
+  creatingFailedDiv.textContent = message;
+}

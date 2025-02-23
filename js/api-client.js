@@ -1,3 +1,13 @@
+/**
+ * Custom error class for handling authentication errors.
+ */
+export class AuthError extends Error {
+  constructor(message) {
+    super(message);
+    this.name = "AuthError";
+  }
+}
+
 export class BlogApi {
   constructor() {
     this.baseUrl = "https://v2.api.noroff.dev";
@@ -24,6 +34,19 @@ export class BlogApi {
       console.error(errorMessage, error);
       throw error;
     }
+  }
+
+  /**
+   * Retrieves the access token from local storage.
+   * @returns {string} The access token.
+   * @throws {AuthError} If the user is not logged in.
+   */
+  _getRequiredAccessToken() {
+    const accessToken = localStorage.getItem("accessToken");
+    if (!accessToken) {
+      throw new AuthError("User is not logged in");
+    }
+    return accessToken;
   }
 
   /**
@@ -73,11 +96,7 @@ export class BlogApi {
     imageUrl,
     imageAlt = "Default image description"
   ) {
-    const accessToken = localStorage.getItem("accessToken");
-    if (!accessToken) {
-      // Navigation to login page can be handled here if needed.
-      return;
-    }
+    const accessToken = this._getRequiredAccessToken();
     const data = {
       title,
       body: content,
@@ -119,10 +138,7 @@ export class BlogApi {
     imageUrl,
     imageAlt = "Default image description"
   ) {
-    const accessToken = localStorage.getItem("accessToken");
-    if (!accessToken) {
-      return;
-    }
+    const accessToken = this._getRequiredAccessToken();
     const data = {
       title,
       body: content,
@@ -154,10 +170,7 @@ export class BlogApi {
    * @returns {Promise<void>}
    */
   async deleteBlogpost(postId) {
-    const accessToken = localStorage.getItem("accessToken");
-    if (!accessToken) {
-      return;
-    }
+    const accessToken = this._getRequiredAccessToken();
     const options = {
       method: "DELETE",
       headers: {

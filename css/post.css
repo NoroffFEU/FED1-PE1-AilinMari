@@ -44,6 +44,9 @@ header {
   position: relative;
 }
 
+section {
+  position: relative;
+}
 h1 p {
   font-family: "IBM plex Sans Condensed";
   font-weight: 300;

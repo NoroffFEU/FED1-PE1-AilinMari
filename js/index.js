@@ -1,7 +1,6 @@
 import { BlogApi } from "./api-client.js";
 let blogApi = new BlogApi();
 
-// const accessToken = localStorage.getItem("accessToken");
 async function getBlogpost() {
   try {
     let blogposts = await blogApi.getBlogposts();
@@ -14,7 +13,6 @@ async function getBlogpost() {
 }
 getBlogpost();
 
-//Husk å legge inn linking til blogposter i slides
 function updateCarousel(blogposts) {
   const slidesContainer = document.querySelector(".slides");
   slidesContainer.innerHTML = "";

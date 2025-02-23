@@ -11,7 +11,6 @@ async function getBlogpost() {
   } catch (error) {
     console.error("Error fetching blogposts", error);
   }
-
 }
 getBlogpost();
 
@@ -48,7 +47,6 @@ function updateCarousel(blogposts) {
     slidesContainer.appendChild(slide);
   });
 }
-
 
 let currentIndex = 0;
 
@@ -102,12 +100,7 @@ function renderBlogposts(post) {
       const postId = event.target.getAttribute("data-id");
       await deleteBlogpost(postId);
     });
-
-    //   const newPostButton = document.querySelector("new-post");
-    // newPostButton = document.createElement("a");
-    // newPostButton.textContent = "New post";
-    // newPostButton.href = "/post/create.html";
-    // }
+    
     const newPostButton = document.querySelector("#new-post");
 
     const accessToken = localStorage.getItem("accessToken");
@@ -131,27 +124,16 @@ function renderBlogposts(post) {
 }
 
 async function deleteBlogpost(postId) {
-  await blogApi.deleteBlogpost(postId);
-
+  try {
+    await blogApi.deleteBlogpost(postId);
+    window.location.href = `index.html`;
+  } catch (error) {
+    if (error instanceof AuthError) {
+      alert("Failed to delete post. You must be logged in to delete a post.");
+      return;
+    }
+    alert("Failed to delete post");
+  }
   // Fetch the updated list of blog posts
   await getBlogpost();
 }
-
-// const navbarLogin = document.querySelector(".log-in");
-// const loginButton = document.createElement("a");
-// loginButton.textContent = "Log in to your account";
-// loginButton.href = "/account/login.html";
-
-// const navbarCreate = document.querySelector(".create-account");
-// const createAccount = document.createElement("a");
-// createAccount.textContent = "Or create account";
-// createAccount.href = "/account/register.html";
-
-// navbarLogin.appendChild(loginButton);
-// navbarCreate.appendChild(createAccount);
-
-//auther register
-
-// const authorRegister = "https://v2.api.noroff.dev/auth/register";
-
-// const authorLogIn = "https://v2.api.noroff.dev/auth/login";

@@ -183,7 +183,6 @@ export class BlogApi {
       options,
       "Error deleting blog post"
     );
-    console.log("Blog post deleted:", postId);
   }
 
   /**

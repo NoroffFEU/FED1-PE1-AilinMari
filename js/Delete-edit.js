@@ -17,9 +17,6 @@ async function deleteBlogpost(postId) {
     if (!response.ok) {
       throw new Error("Failed to delete blog post");
     }
-
-    console.log("Blog post deleted:", postId);
-
     // Fetch the updated list of blog posts
     await getBlogpost();
   } catch (error) {

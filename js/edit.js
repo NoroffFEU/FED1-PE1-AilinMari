@@ -35,7 +35,6 @@ document.addEventListener("DOMContentLoaded", () => {
   if (editPostForm) {
     editPostForm.addEventListener("submit", async (event) => {
       event.preventDefault();
-      console.log("Update post button clicked");
 
       const title = document.getElementById("title").value;
       const content = document.getElementById("content").value;

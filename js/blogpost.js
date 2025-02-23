@@ -106,5 +106,3 @@ document.addEventListener("DOMContentLoaded", () => {
   getBlogpostByID();
   copyToClipboard();
 });
-
-console.log("Blogpost:", blogpost);

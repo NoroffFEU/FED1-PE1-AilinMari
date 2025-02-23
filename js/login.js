@@ -13,9 +13,6 @@ document.addEventListener("DOMContentLoaded", () => {
       const data = await blogApi.login(emailField, passwordField);
       const accessToken = data.accessToken;
       const userId = data.name; // Assuming userId is part of the response
-      console.log(data);
-
-      console.log(accessToken);
       const loginString = JSON.stringify(data);
       localStorage.setItem("result", loginString);
 

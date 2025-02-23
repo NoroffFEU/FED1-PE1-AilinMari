@@ -12,7 +12,6 @@ async function getBlogpost() {
     console.error("Error fetching blogposts", error);
   }
 
-  console.log("Blogposts:", blogposts);
 }
 getBlogpost();
 
@@ -130,13 +129,10 @@ function renderBlogposts(post) {
 
     thumbnailGrid.appendChild(postContainer);
   });
-  console.log("Blogposts rendered");
 }
 
 async function deleteBlogpost(postId) {
   await blogApi.deleteBlogpost(postId);
-
-  console.log("Blog post deleted:", postId);
 
   // Fetch the updated list of blog posts
   await getBlogpost();

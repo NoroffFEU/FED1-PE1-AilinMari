@@ -18,7 +18,7 @@ This is my first project exam as a Front-end student at Noroff. I built an blog 
 🚀 HTML<br>
 👩‍💻 JavaScript<br>
 🧷 Consuming REST APIs <br>
-🎨 Figma
+🎨 Figma<br>
 ✍️ Kanban - planning my work
 
 I am not using frameworks for this project

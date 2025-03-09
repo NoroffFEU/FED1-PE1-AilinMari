@@ -1,13 +1,15 @@
-# FED1 Project Exam 1
+# FED1 Project Exam 1 - Sprinkled Bliss
+![image](https://github.com/user-attachments/assets/d363b4dc-91d1-4747-b07e-1ab392f0d0eb)
 
-## Sprinkled Bliss
+
 
 ## Brief description
-This is my first project exam as a Front-end student at Noroff. I built an blog with the provided endpoint API we got. The blog has login to account feauters, create account, create psot
+This is my first project exam as a Front-end student at Noroff. I built an blog with the provided endpoint API we got. The blog has login to account feauters, create account, create post, delete post, log out and see the blog owners posts when no one is logged in.
 
 ## Features
-🛒 Online shop<br>
-🌧️ Design fitting the products they are selling
+📖 Blog<br>
+🦝 Log in, log out, delete posts etc.<br>
+🧁 Design fitting the theme of the blog<br>
 💻 Responssive website<br>
 🧸 Userfriendly<br>
 
@@ -17,15 +19,16 @@ This is my first project exam as a Front-end student at Noroff. I built an blog 
 👩‍💻 JavaScript<br>
 🧷 Consuming REST APIs <br>
 🎨 Figma
+✍️ Kanban - planning my work
 
 I am not using frameworks for this project
 
 ## Live demo and repo link
-⏯️ <a href="https://ailinmari.github.io/JS1-CA/">Live demo link</a><br>
-🧭 <a href="https://github.com/AilinMari/JS1-CA">Repository</a>
+⏯️ <a href="https://norofffeu.github.io/FED1-PE1-AilinMari/">Live demo link</a><br>
+🧭 <a href="https://github.com/NoroffFEU/FED1-PE1-AilinMari">Repository</a>
 
 ## Description
-RainyDays is rainjacket company selling rainjackets for bot male and female. I wanted to create a clean design where it was easy to know where to click next. You are able to look at the products in a thumbnailgrid on the frontpage, and also go to a detailed page about each product. You can add and remove products from your shoopping cart. And you can also filter the different products (male, female on sale or not).
+I have made a sweet baking blog using the API endpoints we got provided from Noroff. Creating Log in, log out, delete posts, create posts, create account and fetch posts to show them in a thumbnailgrid on the frontpage. You can also click on each blogpost to go to each blogpost and read them. I have also created a picture carousel on the top of the blog that display the last 3 blogposts with picture and name. This blog is so sweet you will get a sugar rush! I have made the functiuons using JavaScript that was a big part of the assignment.  
 
 ## Creator
 This web page is created by Ailin-Mari the owner of the repo.<br>

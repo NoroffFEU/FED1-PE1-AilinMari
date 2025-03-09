@@ -32,6 +32,6 @@ I have made a sweet baking blog using the API endpoints we got provided from Nor
 
 ## Creator
 This web page is created by Ailin-Mari the owner of the repo.<br>
-🌟 <a href="https://github.com/AilinMari/Portfolio-1"> My portfolio </a><br>
+🌟 <a href="https://ailinmari.github.io/Portfolio-1/"> My portfolio </a><br>
 💼 LinkedIn: <a href="https://www.linkedin.com/in/ailin-mari-h%C3%B8idahl-b%C3%B8e-b99b28250/">Ailin-Mari Høidahl Bøe </a> <br>
 📧 Email: Ailinmariboe@hotmail.com <br>
